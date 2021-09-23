@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension View {
-    public func customNavigationTitle(_ title: String) -> some View {
+    func customNavigationTitle(_ title: String) -> CustomNavigation.TitledView {
         return CustomNavigation.TitledView(title: title,
                                            wrappedView: AnyView(self))
     }
