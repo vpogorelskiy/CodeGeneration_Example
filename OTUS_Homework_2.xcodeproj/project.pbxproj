@@ -13,6 +13,12 @@
 		2B8337EC26F8389000CBF76F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D726F8388E00CBF76F /* ContentView.swift */; };
 		2B8337ED26F8389000CBF76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8337D826F8389000CBF76F /* Assets.xcassets */; };
 		2B8337EE26F8389000CBF76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8337D826F8389000CBF76F /* Assets.xcassets */; };
+		D66EA72126FA367500418FDA /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA72026FA367500418FDA /* CustomNavigationView.swift */; };
+		D66EA72226FA367500418FDA /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA72026FA367500418FDA /* CustomNavigationView.swift */; };
+		D66EA79A26FCAD3B00418FDA /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79926FCAD3B00418FDA /* ViewExtension.swift */; };
+		D66EA79B26FCAD3B00418FDA /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79926FCAD3B00418FDA /* ViewExtension.swift */; };
+		D66EA79D26FCAD7000418FDA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79C26FCAD7000418FDA /* Views.swift */; };
+		D66EA79E26FCAD7000418FDA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79C26FCAD7000418FDA /* Views.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,9 @@
 		2B8337E526F8389000CBF76F /* OTUS_Homework_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTUS_Homework_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8337E726F8389000CBF76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B8337E826F8389000CBF76F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D66EA72026FA367500418FDA /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		D66EA79926FCAD3B00418FDA /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		D66EA79C26FCAD7000418FDA /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +66,7 @@
 		2B8337D526F8388E00CBF76F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D66EA79726FCACF600418FDA /* CustomNavigation */,
 				2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */,
 				2B8337D726F8388E00CBF76F /* ContentView.swift */,
 				2B8337D826F8389000CBF76F /* Assets.xcassets */,
@@ -88,6 +98,16 @@
 				2B8337E826F8389000CBF76F /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		D66EA79726FCACF600418FDA /* CustomNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				D66EA72026FA367500418FDA /* CustomNavigationView.swift */,
+				D66EA79926FCAD3B00418FDA /* ViewExtension.swift */,
+				D66EA79C26FCAD7000418FDA /* Views.swift */,
+			);
+			path = CustomNavigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -189,6 +209,9 @@
 			files = (
 				2B8337EB26F8389000CBF76F /* ContentView.swift in Sources */,
 				2B8337E926F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */,
+				D66EA79A26FCAD3B00418FDA /* ViewExtension.swift in Sources */,
+				D66EA79D26FCAD7000418FDA /* Views.swift in Sources */,
+				D66EA72126FA367500418FDA /* CustomNavigationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +221,9 @@
 			files = (
 				2B8337EC26F8389000CBF76F /* ContentView.swift in Sources */,
 				2B8337EA26F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */,
+				D66EA79B26FCAD3B00418FDA /* ViewExtension.swift in Sources */,
+				D66EA79E26FCAD7000418FDA /* Views.swift in Sources */,
+				D66EA72226FA367500418FDA /* CustomNavigationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
