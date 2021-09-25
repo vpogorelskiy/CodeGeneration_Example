@@ -46,7 +46,7 @@ components:
     BooksVolumes:
       type: object
       required:
-      -totalItems
+      - totalItems
       properties:
         kind: 
           type: string
@@ -59,28 +59,33 @@ components:
             $ref: '#/components/schemas/BooksVolume'
     BooksVolume:
       type: object
+      required:
+      - id
+      - selfLink
+      - volumeInfo
       properties:
-        type: object
-        properties: 
-          kind: 
-            type: string
-          id: 
-            type: string
-          etag: 
-            type: string
-          selfLink: 
-            type: string
-          volumeInfo: 
-            $ref: '#/components/schemas/VolumeInfo'
-          saleInfo: 
-            $ref: '#/components/schemas/SaleInfo'
-          accessInfo: 
-            $ref: '#components/schemas/AccessInfo'
-          searchInfo: 
-            $ref: '#components/schemas/SearchInfo'
-
+        kind: 
+          type: string
+        id: 
+          type: string
+        etag: 
+          type: string
+        selfLink: 
+          type: string
+        volumeInfo: 
+          $ref: '#/components/schemas/VolumeInfo'
+        saleInfo: 
+          $ref: '#/components/schemas/SaleInfo'
+        accessInfo: 
+          $ref: '#components/schemas/AccessInfo'
+        searchInfo: 
+          $ref: '#components/schemas/SearchInfo'
     VolumeInfo:
       type: object
+      required:
+      - title
+      - description
+      - imageLinks
       properties: 
         title: 
           type: string
