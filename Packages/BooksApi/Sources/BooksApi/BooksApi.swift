@@ -3,7 +3,7 @@ import Foundation
 open class BooksAPI: ObservableObject {
     private let apiKey = "AIzaSyByCbQHo0C1m92KdiAAMyqZaTar-mcVb4o"
     
-    @Published var bookVolumes: [BooksVolume] = []
+    @Published public var bookVolumes: [BooksVolume] = []
     
     public init(initalQuery: String, batchSize: Int = 20,
                 startIndex: Int = 0) {

@@ -15,8 +15,8 @@ public struct VolumeInfo: Codable, Hashable {
     public var title: String
     public var authors: [String]?
     public var publisher: String?
-    public var publishedDate: Date?
-    public var description: String
+    public var publishedDate: String?
+    public var description: String?
     public var industryIdentifiers: [VolumeInfoIndustryIdentifiers]?
     public var readingModes: VolumeInfoReadingModes?
     public var printType: String?
@@ -31,7 +31,7 @@ public struct VolumeInfo: Codable, Hashable {
     public var infoLink: String?
     public var canonicalVolumeLink: String?
 
-    public init(title: String, authors: [String]? = nil, publisher: String? = nil, publishedDate: Date? = nil, description: String, industryIdentifiers: [VolumeInfoIndustryIdentifiers]? = nil, readingModes: VolumeInfoReadingModes? = nil, printType: String? = nil, categories: [String]? = nil, maturityRating: String? = nil, allowAnonLogging: Bool? = nil, contentVersion: String? = nil, panelizationSummary: VolumeInfoPanelizationSummary? = nil, imageLinks: VolumeInfoImageLinks, language: String? = nil, previewLink: String? = nil, infoLink: String? = nil, canonicalVolumeLink: String? = nil) {
+    public init(title: String, authors: [String]? = nil, publisher: String? = nil, publishedDate: String? = nil, description: String?, industryIdentifiers: [VolumeInfoIndustryIdentifiers]? = nil, readingModes: VolumeInfoReadingModes? = nil, printType: String? = nil, categories: [String]? = nil, maturityRating: String? = nil, allowAnonLogging: Bool? = nil, contentVersion: String? = nil, panelizationSummary: VolumeInfoPanelizationSummary? = nil, imageLinks: VolumeInfoImageLinks, language: String? = nil, previewLink: String? = nil, infoLink: String? = nil, canonicalVolumeLink: String? = nil) {
         self.title = title
         self.authors = authors
         self.publisher = publisher

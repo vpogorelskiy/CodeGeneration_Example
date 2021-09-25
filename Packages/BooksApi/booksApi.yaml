@@ -102,7 +102,6 @@ components:
       type: object
       required:
       - title
-      - description
       - imageLinks
       properties: 
         title: 
@@ -115,7 +114,6 @@ components:
           type: string
         publishedDate: 
           type: string
-          format: date
         description: 
           type: string
         industryIdentifiers: 

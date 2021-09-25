@@ -4,7 +4,7 @@ import BooksApi
 
 struct ContentView: View {
     
-    @StateObject var booksViewModel: BooksAPI = BooksAPI(initalQuery: "1984")
+    @StateObject var booksViewModel: BooksAPI = BooksAPI(initalQuery: Constants.initialQuery)
     
     var body: some View {
         TabView {
@@ -18,15 +18,20 @@ struct ContentView: View {
             }.tabItem { Text("Custom") }
             
             NavigationView {
-                
                     List {
-//                        ForEach(listViewModel.newsList) {
-//                            ArticleCellView(title: $0.title ?? "no title")
-//                        }
+                        ForEach(booksViewModel.bookVolumes) {
+                            Text($0.volumeInfo.title)
+                        }
                     }
-                    .navigationTitle("Native navigation")
+                    .navigationTitle(Constants.initialQuery)
             }.tabItem { Text("Native") }
         }
+    }
+}
+
+private extension ContentView {
+    enum Constants {
+        static let initialQuery = "1984"
     }
 }
 
@@ -35,3 +40,5 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
+extension BooksVolume: Identifiable {}
