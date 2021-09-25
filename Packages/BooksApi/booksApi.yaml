@@ -14,7 +14,7 @@ paths:
       tags:
       - bookVolumes
       summary: Book Volumes
-      operationId: everythingGet
+      operationId: getBooks
       parameters:
       - name: q
         in: query
@@ -28,6 +28,24 @@ paths:
         required: true
         schema:
           type: string
+      - name: printType
+        in: query
+        description: query
+        required: true
+        schema:
+          type: string
+      - name: startIndex
+        in: query
+        description: query
+        required: true
+        schema:
+          type: integer
+      - name: maxResults
+        in: query
+        description: query
+        required: true
+        schema:
+          type: integer
       responses:
         "200":
           description: success
