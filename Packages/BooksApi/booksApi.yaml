@@ -1,0 +1,246 @@
+openapi: 3.0.3
+info:
+  title: BooksApi
+  description: GoogleApis.com/Books
+  version: 1.0.0
+servers:
+- url: https://www.googleapis.com/books/v1
+tags:
+- name: bookVolumes
+  description: BookVolumes
+paths:
+  /volumes/:
+    get:
+      tags:
+      - bookVolumes
+      summary: Book Volumes
+      operationId: everythingGet
+      parameters:
+      - name: q
+        in: query
+        description: query
+        required: true
+        schema:
+          type: string
+      - name: key
+        in: query
+        description: key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BooksVolumes'
+        default:
+          description: enexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+components:
+  schemas:
+    BooksVolumes:
+      type: object
+      required:
+      -totalItems
+      properties:
+        kind: 
+          type: string
+        totalItems: 
+          type: integer
+          format: int32
+        items: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/BooksVolume'
+    BooksVolume:
+      type: object
+      properties:
+        type: object
+        properties: 
+          kind: 
+            type: string
+          id: 
+            type: string
+          etag: 
+            type: string
+          selfLink: 
+            type: string
+          volumeInfo: 
+            $ref: '#/components/schemas/VolumeInfo'
+          saleInfo: 
+            $ref: '#/components/schemas/SaleInfo'
+          accessInfo: 
+            $ref: '#components/schemas/AccessInfo'
+          searchInfo: 
+            $ref: '#components/schemas/SearchInfo'
+
+    VolumeInfo:
+      type: object
+      properties: 
+        title: 
+          type: string
+        authors: 
+          type: array
+          items: 
+            type: string
+        publisher: 
+          type: string
+        publishedDate: 
+          type: string
+          format: date
+        description: 
+          type: string
+        industryIdentifiers: 
+          type: array
+          items: 
+            type: object
+            properties: 
+              type: 
+                type: string
+              identifier: 
+                type: string
+        readingModes: 
+          type: object
+          properties: 
+            text: 
+              type: boolean
+            image: 
+              type: boolean
+        printType: 
+          type: string
+        categories: 
+          type: array
+          items: 
+            type: string
+        maturityRating: 
+          type: string
+        allowAnonLogging: 
+          type: boolean
+        contentVersion: 
+          type: string
+        panelizationSummary: 
+          type: object
+          properties: 
+            containsEpubBubbles: 
+              type: boolean
+            containsImageBubbles: 
+              type: boolean
+        imageLinks: 
+          type: object
+          properties: 
+            smallThumbnail: 
+              type: string
+            thumbnail: 
+              type: string
+        language: 
+          type: string
+        previewLink: 
+          type: string
+        infoLink: 
+          type: string
+        canonicalVolumeLink: 
+          type: string
+    SaleInfo:
+      type: object
+      properties: 
+        country: 
+          type: string
+        saleability: 
+          type: string
+        isEbook: 
+          type: boolean
+        listPrice: 
+          type: object
+          properties: 
+            amount: 
+              type: number
+            currencyCode: 
+              type: string
+        retailPrice: 
+          type: object
+          properties: 
+            amount: 
+              type: number
+            currencyCode: 
+              type: string
+        buyLink: 
+          type: string
+        offers: 
+          type: array
+          items: 
+            type: object
+            properties: 
+              finskyOfferType: 
+                type: integer
+                format: int32
+              listPrice: 
+                type: object
+                properties: 
+                  amountInMicros: 
+                    type: integer
+                    format: int32
+                  currencyCode: 
+                    type: string
+              retailPrice: 
+                type: object
+                properties: 
+                  amountInMicros: 
+                    type: integer
+                    format: int32
+                  currencyCode: 
+                    type: string
+    AccessInfo:
+      type: object
+      properties: 
+        country: 
+          type: string
+        viewability: 
+          type: string
+        embeddable: 
+          type: boolean
+        publicDomain: 
+          type: boolean
+        textToSpeechPermission: 
+          type: string
+        epub: 
+          type: object
+          properties: 
+            isAvailable: 
+              type: boolean
+            acsTokenLink: 
+              type: string
+        pdf: 
+          type: object
+          properties: 
+            isAvailable: 
+              type: boolean
+            acsTokenLink: 
+              type: string
+        webReaderLink: 
+          type: string
+        accessViewStatus: 
+          type: string
+        quoteSharingAllowed: 
+          type: boolean
+    SearchInfo:
+      type: object
+      properties: 
+        textSnippet: 
+          type: string
+    ErrorModel:
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          maximum: 600
+          minimum: 100
+          type: integer
