@@ -1,17 +1,19 @@
-public final class BooksApi: ObservableObject {
+import Foundation
+
+open class BooksAPI: ObservableObject {
     private let apiKey = "AIzaSyByCbQHo0C1m92KdiAAMyqZaTar-mcVb4o"
-    private let defaultBatchSize = 20
     
     @Published var bookVolumes: [BooksVolume] = []
     
-    init(initalQuery: String, batchSize: Int = defaultBatchSize, startIndex: Int = 0) {
+    public init(initalQuery: String, batchSize: Int = 20,
+                startIndex: Int = 0) {
         BookVolumesAPI.getBooks(q: initalQuery,
                                 key: apiKey,
                                 printType: PrintType.books.rawValue,
                                 startIndex: startIndex,
                                 maxResults: batchSize,
-                                apiResponseQueue: .main) { volumes, error in
-            bookVolumes = volumes?.items ?? []
+                                apiResponseQueue: .main) { [weak self] volumes, error in
+            self?.bookVolumes = volumes?.items ?? []
         }
     }
     
@@ -19,7 +21,7 @@ public final class BooksApi: ObservableObject {
     // Grid for iOS 13
 }
 
-private extension BooksApi {
+private extension BooksAPI {
     enum PrintType: String {
         case all
         case books

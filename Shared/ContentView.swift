@@ -1,7 +1,11 @@
 
 import SwiftUI
+import BooksApi
 
 struct ContentView: View {
+    
+    @StateObject var booksViewModel: BooksAPI = BooksAPI(initalQuery: "1984")
+    
     var body: some View {
         TabView {
             CustomNavigation.NavigationView() {
@@ -14,8 +18,12 @@ struct ContentView: View {
             }.tabItem { Text("Custom") }
             
             NavigationView {
-                NavigationLink("Push natively",
-                               destination: Text("Native child"))
+                
+                    List {
+//                        ForEach(listViewModel.newsList) {
+//                            ArticleCellView(title: $0.title ?? "no title")
+//                        }
+                    }
                     .navigationTitle("Native navigation")
             }.tabItem { Text("Native") }
         }

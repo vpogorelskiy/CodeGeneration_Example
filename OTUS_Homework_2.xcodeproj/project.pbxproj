@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		D66EA79B26FCAD3B00418FDA /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79926FCAD3B00418FDA /* ViewExtension.swift */; };
 		D66EA79D26FCAD7000418FDA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79C26FCAD7000418FDA /* Views.swift */; };
 		D66EA79E26FCAD7000418FDA /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79C26FCAD7000418FDA /* Views.swift */; };
+		D6E43AE326FF9257000B1A51 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = D6E43AE226FF9257000B1A51 /* BooksApi */; };
+		D6E43AE526FF925A000B1A51 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = D6E43AE426FF925A000B1A51 /* BooksApi */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E43AE326FF9257000B1A51 /* BooksApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6E43AE526FF925A000B1A51 /* BooksApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +66,7 @@
 				2B8337DF26F8389000CBF76F /* iOS */,
 				2B8337E626F8389000CBF76F /* macOS */,
 				2B8337DE26F8389000CBF76F /* Products */,
+				D6E43AE126FF9257000B1A51 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,6 +117,13 @@
 			path = CustomNavigation;
 			sourceTree = "<group>";
 		};
+		D6E43AE126FF9257000B1A51 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +140,9 @@
 			dependencies = (
 			);
 			name = "OTUS_Homework_2 (iOS)";
+			packageProductDependencies = (
+				D6E43AE226FF9257000B1A51 /* BooksApi */,
+			);
 			productName = "OTUS_Homework_2 (iOS)";
 			productReference = 2B8337DD26F8389000CBF76F /* OTUS_Homework_2.app */;
 			productType = "com.apple.product-type.application";
@@ -145,6 +160,9 @@
 			dependencies = (
 			);
 			name = "OTUS_Homework_2 (macOS)";
+			packageProductDependencies = (
+				D6E43AE426FF925A000B1A51 /* BooksApi */,
+			);
 			productName = "OTUS_Homework_2 (macOS)";
 			productReference = 2B8337E526F8389000CBF76F /* OTUS_Homework_2.app */;
 			productType = "com.apple.product-type.application";
@@ -467,6 +485,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D6E43AE226FF9257000B1A51 /* BooksApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BooksApi;
+		};
+		D6E43AE426FF925A000B1A51 /* BooksApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BooksApi;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2B8337D126F8388E00CBF76F /* Project object */;
 }
