@@ -33,6 +33,7 @@
 		D66EA72026FA367500418FDA /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		D66EA79926FCAD3B00418FDA /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		D66EA79C26FCAD7000418FDA /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		D685B29826FF6C8A0093A427 /* BooksApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BooksApi; path = Packages/BooksApi; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		2B8337D026F8388E00CBF76F = {
 			isa = PBXGroup;
 			children = (
+				D685B29826FF6C8A0093A427 /* BooksApi */,
 				2B8337D526F8388E00CBF76F /* Shared */,
 				2B8337DF26F8389000CBF76F /* iOS */,
 				2B8337E626F8389000CBF76F /* macOS */,
