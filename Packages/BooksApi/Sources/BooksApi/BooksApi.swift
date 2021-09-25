@@ -16,9 +16,6 @@ open class BooksAPI: ObservableObject {
             self?.bookVolumes = volumes?.items ?? []
         }
     }
-    
-    // Fallback
-    // Grid for iOS 13
 }
 
 private extension BooksAPI {

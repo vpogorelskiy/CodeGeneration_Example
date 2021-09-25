@@ -18,10 +18,10 @@ public struct BooksVolume: Codable, Hashable {
     public var selfLink: String
     public var volumeInfo: VolumeInfo
     public var saleInfo: SaleInfo?
-    public var accessInfo: AnyCodable?
-    public var searchInfo: AnyCodable?
+    public var accessInfo: AccessInfo?
+    public var searchInfo: SearchInfo?
 
-    public init(kind: String? = nil, id: String, etag: String? = nil, selfLink: String, volumeInfo: VolumeInfo, saleInfo: SaleInfo? = nil, accessInfo: AnyCodable? = nil, searchInfo: AnyCodable? = nil) {
+    public init(kind: String? = nil, id: String, etag: String? = nil, selfLink: String, volumeInfo: VolumeInfo, saleInfo: SaleInfo? = nil, accessInfo: AccessInfo? = nil, searchInfo: SearchInfo? = nil) {
         self.kind = kind
         self.id = id
         self.etag = etag
