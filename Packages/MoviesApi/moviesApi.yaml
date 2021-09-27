@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://www.omdbapi.com
 tags:
-  - name: movies
+  - name: moviesList
     description: Movies list
   - name: movieDetails
     description: Movie details
@@ -14,7 +14,7 @@ paths:
   /?s:
     get:
       tags:
-        - movies
+        - moviesSearch
       operationId: getMovies
       summary: Movies list
       parameters:
