@@ -17,78 +17,77 @@ paths:
         - movies
       operationId: getMovies
       summary: Movies list
-        parameters:
+      parameters:
         - name: s
           in: query
-          description: "Title of movie or series",
-          required: true
-          type: string
-        - name: key
-          in: path
-          description: "Authentication key"
-          required: true
-          type: string
-        - name: type
-          in: path
-          description: "Return movie or series"
-          required: false
-          type: string
-          enum: [movie, series, episode]
-        - name: page
-          in: path
-          description: "Page number to return"
+          description: Title of movie or series
           required: true
           schema:
+            type: string
+        - name: key
+          in: query
+          description: Your API Key
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: Return movie, series or episode
+          required: false
+          schema:
+            type: string
+            enum: [movies, series, episode]
+        - name: page
+          in: query
+          description: Page number to return
+          required: false
+          schema:
             type: integer
-        responses:
-          "200":
-            description: success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/MoviesResponse'
-          default:
-            description: enexpected error
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ErrorModel'
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MoviesResponse'
+        default:
+          description: enexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
   /?i:
     get:
       tags:
         - movieDetails
       operationId: getMovieDetails
-      summary: Movies Detailed information
-        parameters:
+      summary: Movie details
+      parameters:
         - name: i
           in: query
-          description:  "A valid IMDb ID (e.g. tt0000001)",
+          description: A valid IMDb ID
           required: true
-          type: string
+          schema:
+            type: string
         - name: key
-          in: path
-          description: "Authentication key"
+          in: query
+          description: Your API Key
           required: true
-          type: string
-        - name: plot
-          in: path
-          description: "Return short or full plot"
-          required: false
-          type: string
-          enum: [short, full]
-        responses:
-          "200":
-            description: success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/MovieFull'
-          default:
-            description: enexpected error
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ErrorModel'
+          schema:
+            type: string
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MovieFull'
+        default:
+          description: enexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
 components:
   schemas:
     MoviesResponse:
