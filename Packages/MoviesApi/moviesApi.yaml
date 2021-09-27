@@ -11,82 +11,48 @@ tags:
   - name: movieDetails
     description: Movie details
 paths:
-  ./:
+  /:
     get:
-      tags:
-      - movies
-      summary: Movies list
       operationId: getMovies
-      parameters:
-      - name: s
-        in: query
-        description: search
-        required: true
-        schema:
-          type: string
-      - name: type
-        in: query
-        description: search
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: query
-        description: key
-        required: true
-        schema:
-          type: string
-      - name: page
-        in: query
-        description: query
-        required: true
-        schema:
-          type: integer
-      responses:
-        "200":
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BooksVolumes'
-        default:
-          description: enexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorModel'
-  ./:
-    get:
-      tags:
-      - movieDetails
-      summary: Movie details
-      operationId: getMovieDetails
-      parameters:
-      - name: i
-        in: query
-        description: search
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: query
-        description: key
-        required: true
-        schema:
-          type: string
-      responses:
-        "200":
-          description: success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MovieFull'
-        default:
-          description: enexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ErrorModel'
+      summary: Movies list
+        parameters:
+        - name: s
+          in: query
+          description: search
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: path
+          description: search
+          required: true
+          schema:
+            type: string
+        - name: key
+          in: path
+          description: key
+          required: true
+          schema:
+            type: string
+        - name: page
+          in: path
+          description: query
+          required: true
+          schema:
+            type: integer
+        responses:
+          "200":
+            description: success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/MoviesResponse'
+          default:
+            description: enexpected error
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ErrorModel'
 components:
   schemas:
     MoviesResponse:
@@ -116,6 +82,7 @@ components:
         Type: 
           type: string
         Poster: 
+          type: string
     MovieFull:
       type: object
       required:
