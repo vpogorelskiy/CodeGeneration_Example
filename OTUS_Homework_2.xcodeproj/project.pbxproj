@@ -15,6 +15,10 @@
 		2B8337EE26F8389000CBF76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8337D826F8389000CBF76F /* Assets.xcassets */; };
 		D617B0FD27021EB100064E43 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = D617B0FC27021EB100064E43 /* MoviesApi */; };
 		D617B0FF27021EB800064E43 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = D617B0FE27021EB800064E43 /* MoviesApi */; };
+		D617B1022702219A00064E43 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B1012702219A00064E43 /* BooksView.swift */; };
+		D617B1032702219A00064E43 /* BooksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B1012702219A00064E43 /* BooksView.swift */; };
+		D617B105270221CE00064E43 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B104270221CE00064E43 /* MoviesView.swift */; };
+		D617B106270221CE00064E43 /* MoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D617B104270221CE00064E43 /* MoviesView.swift */; };
 		D66EA72126FA367500418FDA /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA72026FA367500418FDA /* CustomNavigationView.swift */; };
 		D66EA72226FA367500418FDA /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA72026FA367500418FDA /* CustomNavigationView.swift */; };
 		D66EA79A26FCAD3B00418FDA /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79926FCAD3B00418FDA /* ViewExtension.swift */; };
@@ -35,6 +39,8 @@
 		2B8337E726F8389000CBF76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B8337E826F8389000CBF76F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D617B0FB27021E9500064E43 /* MoviesApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MoviesApi; path = Packages/MoviesApi; sourceTree = "<group>"; };
+		D617B1012702219A00064E43 /* BooksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksView.swift; sourceTree = "<group>"; };
+		D617B104270221CE00064E43 /* MoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesView.swift; sourceTree = "<group>"; };
 		D66EA72026FA367500418FDA /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		D66EA79926FCAD3B00418FDA /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		D66EA79C26FCAD7000418FDA /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 		2B8337D526F8388E00CBF76F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				D617B1002702217E00064E43 /* UI */,
 				D66EA79726FCACF600418FDA /* CustomNavigation */,
 				2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */,
 				2B8337D726F8388E00CBF76F /* ContentView.swift */,
@@ -111,6 +118,15 @@
 				2B8337E826F8389000CBF76F /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		D617B1002702217E00064E43 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				D617B1012702219A00064E43 /* BooksView.swift */,
+				D617B104270221CE00064E43 /* MoviesView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		D66EA79726FCACF600418FDA /* CustomNavigation */ = {
@@ -236,8 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8337EB26F8389000CBF76F /* ContentView.swift in Sources */,
+				D617B1022702219A00064E43 /* BooksView.swift in Sources */,
 				2B8337E926F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */,
 				D66EA79A26FCAD3B00418FDA /* ViewExtension.swift in Sources */,
+				D617B105270221CE00064E43 /* MoviesView.swift in Sources */,
 				D66EA79D26FCAD7000418FDA /* Views.swift in Sources */,
 				D66EA72126FA367500418FDA /* CustomNavigationView.swift in Sources */,
 			);
@@ -248,8 +266,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8337EC26F8389000CBF76F /* ContentView.swift in Sources */,
+				D617B1032702219A00064E43 /* BooksView.swift in Sources */,
 				2B8337EA26F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */,
 				D66EA79B26FCAD3B00418FDA /* ViewExtension.swift in Sources */,
+				D617B106270221CE00064E43 /* MoviesView.swift in Sources */,
 				D66EA79E26FCAD7000418FDA /* Views.swift in Sources */,
 				D66EA72226FA367500418FDA /* CustomNavigationView.swift in Sources */,
 			);
