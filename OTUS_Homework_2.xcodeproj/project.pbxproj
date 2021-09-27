@@ -13,6 +13,8 @@
 		2B8337EC26F8389000CBF76F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D726F8388E00CBF76F /* ContentView.swift */; };
 		2B8337ED26F8389000CBF76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8337D826F8389000CBF76F /* Assets.xcassets */; };
 		2B8337EE26F8389000CBF76F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B8337D826F8389000CBF76F /* Assets.xcassets */; };
+		D617B0FD27021EB100064E43 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = D617B0FC27021EB100064E43 /* MoviesApi */; };
+		D617B0FF27021EB800064E43 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = D617B0FE27021EB800064E43 /* MoviesApi */; };
 		D66EA72126FA367500418FDA /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA72026FA367500418FDA /* CustomNavigationView.swift */; };
 		D66EA72226FA367500418FDA /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA72026FA367500418FDA /* CustomNavigationView.swift */; };
 		D66EA79A26FCAD3B00418FDA /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66EA79926FCAD3B00418FDA /* ViewExtension.swift */; };
@@ -32,6 +34,7 @@
 		2B8337E526F8389000CBF76F /* OTUS_Homework_2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OTUS_Homework_2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8337E726F8389000CBF76F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B8337E826F8389000CBF76F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		D617B0FB27021E9500064E43 /* MoviesApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MoviesApi; path = Packages/MoviesApi; sourceTree = "<group>"; };
 		D66EA72026FA367500418FDA /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		D66EA79926FCAD3B00418FDA /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		D66EA79C26FCAD7000418FDA /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
@@ -43,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D617B0FD27021EB100064E43 /* MoviesApi in Frameworks */,
 				D6E43AE326FF9257000B1A51 /* BooksApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D617B0FF27021EB800064E43 /* MoviesApi in Frameworks */,
 				D6E43AE526FF925A000B1A51 /* BooksApi in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +66,7 @@
 		2B8337D026F8388E00CBF76F = {
 			isa = PBXGroup;
 			children = (
+				D617B0FB27021E9500064E43 /* MoviesApi */,
 				D685B29826FF6C8A0093A427 /* BooksApi */,
 				2B8337D526F8388E00CBF76F /* Shared */,
 				2B8337DF26F8389000CBF76F /* iOS */,
@@ -142,6 +148,7 @@
 			name = "OTUS_Homework_2 (iOS)";
 			packageProductDependencies = (
 				D6E43AE226FF9257000B1A51 /* BooksApi */,
+				D617B0FC27021EB100064E43 /* MoviesApi */,
 			);
 			productName = "OTUS_Homework_2 (iOS)";
 			productReference = 2B8337DD26F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -162,6 +169,7 @@
 			name = "OTUS_Homework_2 (macOS)";
 			packageProductDependencies = (
 				D6E43AE426FF925A000B1A51 /* BooksApi */,
+				D617B0FE27021EB800064E43 /* MoviesApi */,
 			);
 			productName = "OTUS_Homework_2 (macOS)";
 			productReference = 2B8337E526F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -487,6 +495,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D617B0FC27021EB100064E43 /* MoviesApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesApi;
+		};
+		D617B0FE27021EB800064E43 /* MoviesApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesApi;
+		};
 		D6E43AE226FF9257000B1A51 /* BooksApi */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BooksApi;
