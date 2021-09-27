@@ -12,11 +12,11 @@ import AnyCodable
 
 public struct MoviesResponse: Codable, Hashable {
 
-    public var totalResults: Int?
-    public var response: Bool
+    public var totalResults: String?
+    public var response: String
     public var search: [MovieShort]?
 
-    public init(totalResults: Int? = nil, response: Bool, search: [MovieShort]? = nil) {
+    public init(totalResults: String? = nil, response: String, search: [MovieShort]? = nil) {
         self.totalResults = totalResults
         self.response = response
         self.search = search

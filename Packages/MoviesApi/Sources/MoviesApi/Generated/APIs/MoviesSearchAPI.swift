@@ -25,14 +25,14 @@ open class MoviesSearchAPI {
      Movies list
      
      - parameter s: (query) Title of movie or series 
-     - parameter key: (query) Your API Key 
+     - parameter apiKey: (query) Your API Key 
      - parameter type: (query) Return movie, series or episode (optional)
      - parameter page: (query) Page number to return (optional)
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getMovies(s: String, key: String, type: ModelType_getMovies? = nil, page: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: MoviesResponse?, _ error: Error?) -> Void)) {
-        getMoviesWithRequestBuilder(s: s, key: key, type: type, page: page).execute(apiResponseQueue) { result -> Void in
+    open class func getMovies(s: String, apiKey: String, type: ModelType_getMovies? = nil, page: Int? = nil, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: MoviesResponse?, _ error: Error?) -> Void)) {
+        getMoviesWithRequestBuilder(s: s, apiKey: apiKey, type: type, page: page).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -46,12 +46,12 @@ open class MoviesSearchAPI {
      Movies list
      - GET /?s
      - parameter s: (query) Title of movie or series 
-     - parameter key: (query) Your API Key 
+     - parameter apiKey: (query) Your API Key 
      - parameter type: (query) Return movie, series or episode (optional)
      - parameter page: (query) Page number to return (optional)
      - returns: RequestBuilder<MoviesResponse> 
      */
-    open class func getMoviesWithRequestBuilder(s: String, key: String, type: ModelType_getMovies? = nil, page: Int? = nil) -> RequestBuilder<MoviesResponse> {
+    open class func getMoviesWithRequestBuilder(s: String, apiKey: String, type: ModelType_getMovies? = nil, page: Int? = nil) -> RequestBuilder<MoviesResponse> {
         let localVariablePath = "/?s"
         let localVariableURLString = OpenAPIClient.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -59,7 +59,7 @@ open class MoviesSearchAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "s": s.encodeToJSON(),
-            "key": key.encodeToJSON(),
+            "apiKey": apiKey.encodeToJSON(),
             "type": type?.encodeToJSON(),
             "page": page?.encodeToJSON(),
         ])

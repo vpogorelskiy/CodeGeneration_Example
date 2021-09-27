@@ -12,10 +12,10 @@ import AnyCodable
 
 public struct ErrorModel: Codable, Hashable {
 
-    public var response: Bool?
+    public var response: String?
     public var error: String?
 
-    public init(response: Bool? = nil, error: String? = nil) {
+    public init(response: String? = nil, error: String? = nil) {
         self.response = response
         self.error = error
     }

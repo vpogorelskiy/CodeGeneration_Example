@@ -16,12 +16,12 @@ open class MovieDetailsAPI {
      Movie details
      
      - parameter i: (query) A valid IMDb ID 
-     - parameter key: (query) Your API Key 
+     - parameter apiKey: (query) Your API Key 
      - parameter apiResponseQueue: The queue on which api response is dispatched.
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getMovieDetails(i: String, key: String, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: MovieFull?, _ error: Error?) -> Void)) {
-        getMovieDetailsWithRequestBuilder(i: i, key: key).execute(apiResponseQueue) { result -> Void in
+    open class func getMovieDetails(i: String, apiKey: String, apiResponseQueue: DispatchQueue = OpenAPIClient.apiResponseQueue, completion: @escaping ((_ data: MovieFull?, _ error: Error?) -> Void)) {
+        getMovieDetailsWithRequestBuilder(i: i, apiKey: apiKey).execute(apiResponseQueue) { result -> Void in
             switch result {
             case let .success(response):
                 completion(response.body, nil)
@@ -35,10 +35,10 @@ open class MovieDetailsAPI {
      Movie details
      - GET /?i
      - parameter i: (query) A valid IMDb ID 
-     - parameter key: (query) Your API Key 
+     - parameter apiKey: (query) Your API Key 
      - returns: RequestBuilder<MovieFull> 
      */
-    open class func getMovieDetailsWithRequestBuilder(i: String, key: String) -> RequestBuilder<MovieFull> {
+    open class func getMovieDetailsWithRequestBuilder(i: String, apiKey: String) -> RequestBuilder<MovieFull> {
         let localVariablePath = "/?i"
         let localVariableURLString = OpenAPIClient.basePath + localVariablePath
         let localVariableParameters: [String: Any]? = nil
@@ -46,7 +46,7 @@ open class MovieDetailsAPI {
         var localVariableUrlComponents = URLComponents(string: localVariableURLString)
         localVariableUrlComponents?.queryItems = APIHelper.mapValuesToQueryItems([
             "i": i.encodeToJSON(),
-            "key": key.encodeToJSON(),
+            "apiKey": apiKey.encodeToJSON(),
         ])
 
         let localVariableNillableHeaders: [String: Any?] = [

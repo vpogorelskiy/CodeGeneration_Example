@@ -2,8 +2,7 @@ import SwiftUI
 import BooksApi
 
 struct BooksView: View {
-    
-    @EnvironmentObject var booksViewModel: BooksAPI
+    @StateObject var booksViewModel: BooksAPI = BooksAPI(initalQuery: "Dune")
     
     var body: some View {
         NavigationView {

@@ -13,6 +13,7 @@ open class BooksAPI: ObservableObject {
                                 startIndex: startIndex,
                                 maxResults: batchSize,
                                 apiResponseQueue: .main) { [weak self] volumes, error in
+            print("ApiDebug.\(Self.self).\(#function): Response: \(volumes); Error: \(error)")
             self?.bookVolumes = volumes?.items ?? []
         }
     }

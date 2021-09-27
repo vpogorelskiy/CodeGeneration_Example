@@ -4,7 +4,7 @@ info:
   description: omdbapi.com
   version: 1.0.0
 servers:
-  - url: http://www.omdbapi.com
+  - url: https://www.omdbapi.com
 tags:
   - name: moviesList
     description: Movies list
@@ -24,7 +24,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: key
+        - name: apiKey
           in: query
           description: Your API Key
           required: true
@@ -69,7 +69,7 @@ paths:
           required: true
           schema:
             type: string
-        - name: key
+        - name: apiKey
           in: query
           description: Your API Key
           required: true
@@ -96,9 +96,9 @@ components:
         - Response
       properties:
         totalResults: 
-          type: integer
+          type: string
         Response: 
-          type: boolean
+          type: string
         Search: 
           type: array
           items: 
@@ -195,6 +195,6 @@ components:
       type: object
       properties:
         Response:
-          type: boolean
+          type: string
         Error:
           type: string

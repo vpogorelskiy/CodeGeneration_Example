@@ -10,7 +10,7 @@ import Foundation
 public typealias OpenAPIClientAPI = OpenAPIClient
 
 open class OpenAPIClient {
-    public static var basePath = "http://www.omdbapi.com"
+    public static var basePath = "https://www.omdbapi.com"
     public static var customHeaders: [String: String] = [:]
     public static var credential: URLCredential?
     public static var requestBuilderFactory: RequestBuilderFactory = URLSessionRequestBuilderFactory()

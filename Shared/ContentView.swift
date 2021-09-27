@@ -3,16 +3,14 @@ import SwiftUI
 import BooksApi
 
 struct ContentView: View {
-    var booksViewModel: BooksAPI = BooksAPI(initalQuery: Constants.initialQuery)
-    
+     
     var body: some View {
         TabView {
             BooksView()
-                .environmentObject(booksViewModel)
                 .tabItem {
                 Image(systemName: "books.vertical")
                 Text("Books")
-            }.environmentObject(booksViewModel)
+            }
             MoviesView().tabItem {
                 Image(systemName: "play.rectangle")
                 Text("Movies")
