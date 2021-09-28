@@ -2,8 +2,7 @@ import SwiftUI
 import MoviesApi
 
 struct MoviesView: View {
-//    @State var query: String
-    @StateObject var moviesViewModel: MoviesAPI = MoviesAPI(initalQuery: "Dune")
+    @EnvironmentObject var moviesViewModel: MoviesAPI
     
     var body: some View {
         NavigationView {

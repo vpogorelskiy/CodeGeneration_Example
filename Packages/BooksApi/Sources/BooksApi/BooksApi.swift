@@ -5,9 +5,11 @@ open class BooksAPI: ObservableObject {
     
     @Published public var bookVolumes: [BooksVolume] = []
     
-    public init(initalQuery: String, batchSize: Int = 20,
-                startIndex: Int = 0) {
-        BookVolumesAPI.getBooks(q: initalQuery,
+    public init() {}
+    
+    public func makeSearch(query: String, batchSize: Int = 20,
+                           startIndex: Int = 0) {
+        BookVolumesAPI.getBooks(q: query,
                                 key: apiKey,
                                 printType: PrintType.books.rawValue,
                                 startIndex: startIndex,

@@ -19,7 +19,6 @@ extension CustomNavigation {
         private let label: Label
         private let destination: Destination
         
-        
         public init(destination: Destination, @ViewBuilder label: @escaping () -> Label) {
             self.destination = destination
             self.label = label()
