@@ -22,7 +22,7 @@ struct ContentView: View {
             }
             .tabItem {
                 Image(systemName: "books.vertical")
-                Text("Books")
+                Text("Results for '\(bookSearchResult)'")
             }
             NavigationView {
                 SearchView(title: "Find movies",
@@ -58,7 +58,7 @@ struct SearchView<Destination : View>: View {
         VStack {
             TextField("Search query",
                       text: $searchResult)
-                .frame(alignment: .center)
+                .multilineTextAlignment(.center)
             Spacer().frame(height: 44)
             NavigationLink(destination: destination) {
                 Text("Search")

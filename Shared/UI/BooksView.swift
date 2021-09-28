@@ -5,15 +5,74 @@ struct BooksView: View {
     @EnvironmentObject var booksViewModel: BooksAPI
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(booksViewModel.bookVolumes) {
-                    Text($0.volumeInfo.title)
+        List {
+            ForEach(booksViewModel.bookVolumes) { volume in
+                let title = volume.volumeInfo.title
+                NavigationLink {
+                    BooksDetailView(detailInfo: volume.volumeInfo)
+                        .navigationTitle(title)
+                } label: {
+                    Text(title)
                 }
             }
-            .navigationTitle("Books")
         }
+        .navigationTitle("Books")
     }
 }
 
 extension BooksVolume: Identifiable {}
+
+struct BooksDetailView: View {
+    @State var detailInfo: VolumeInfo
+    @State var image: Image? = nil
+    
+    enum Titles {
+        static let title = "Title"
+        static let description = "Description"
+        static let authors = "Authors"
+        
+        static let ordered  = [title, authors, description]
+    }
+    
+    private var detailMap: [String: String] {
+        return [Titles.title : detailInfo.title,
+                Titles.authors: detailInfo.authors?.joined(separator: ", ") ?? "",
+                Titles.description: detailInfo.description ?? "",
+//                "Image" :
+        ]
+    }
+    
+    var body: some View {
+        List {
+            ForEach(Titles.ordered, id: \.self) { title in
+                VStack(alignment: .leading) {
+                    Text(title).font(.title)
+                    Text(detailMap[title] ?? "")
+                }
+            }
+        }
+    }
+}
+
+struct BooksDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        BooksDetailView(detailInfo: VolumeInfo(title: "Dune",
+                                               authors: ["One", "Two"],
+                                               publisher: "Some Publisher",
+                                               publishedDate: "1984",
+                                               description: "A guide to Frank Herbert\'s imaginary world offers scientific speculation on such topics as physics, chemistry, ecology, evolution, psychology, technology, and genetics.",
+                                               industryIdentifiers: nil,
+                                               readingModes: nil,
+                                               printType: nil,
+                                               categories: nil,
+                                               maturityRating: nil,
+                                               allowAnonLogging: nil,
+                                               contentVersion: nil,
+                                               panelizationSummary: nil,
+                                               imageLinks: VolumeInfoImageLinks(),
+                                               language: nil,
+                                               previewLink: nil,
+                                               infoLink: nil,
+                                               canonicalVolumeLink: nil))
+    }
+}
