@@ -48,8 +48,6 @@ protocol ViewModelDetailItem: Identifiable {
 struct ViewModelDetailRow: Identifiable {
     var title: String
     var value: String
-}
-
-extension ViewModelDetailRow {
+    
     var id: String { return title }
 }
