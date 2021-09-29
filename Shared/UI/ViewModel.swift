@@ -40,7 +40,9 @@ class ViewModel<Api: AbstractApi>: ObservableObject {
     }
     
     func loadNextIfNeeded(for item: Api.Item) {
-        guard items.last?.id == item.id, hasNext == true else { return }
+        guard isLoading == false,
+                hasNext == true,
+                items.last?.id == item.id else { return }
         
         isLoading = true
         lastBatchIndex += 1
@@ -59,7 +61,6 @@ class ViewModel<Api: AbstractApi>: ObservableObject {
             self?.detailItem = detailItem
         }
     }
-    
 }
 
 protocol ViewModelItem: Identifiable {
