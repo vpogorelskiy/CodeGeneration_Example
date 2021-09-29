@@ -10,6 +10,7 @@ struct ResultsView<Api: AbstractApi>: View {
                 NavigationLink {
                     DetailView<Api>()
                         .environmentObject(viewModel)
+                        .navigationTitle(item.title.safeString)
                         .onAppear {
                             viewModel.getDetails(forItem: item)
                         }

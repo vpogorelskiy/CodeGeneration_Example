@@ -14,24 +14,24 @@ struct ContentView: View {
     var body: some View {
         TabView {
             NavigationView {
-                SearchView(title: "Find books",
+                SearchView(searchResult: $bookSearchResult,
                            destination: ResultsView<BooksAPI>()
                             .environmentObject(booksViewModel)
-                            .onAppear(perform: { booksViewModel.makeSearch(query: bookSearchResult) }),
-                           searchResult: $bookSearchResult)
-                    .navigationTitle("Results for '\(bookSearchResult)'")
+                            .onAppear(perform: { booksViewModel.makeSearch(query: bookSearchResult) })
+                            .navigationTitle("Results for '\(bookSearchResult)'"))
+                    .navigationTitle("Find books")
             }
             .tabItem {
                 Image(systemName: "books.vertical")
                 Text("Books")
             }
             NavigationView {
-                SearchView(title: "Find movies",
+                SearchView(searchResult: $movieSearchResult,
                            destination: ResultsView<MoviesAPI>()
                             .environmentObject(moviesViewModel)
-                            .onAppear(perform: { moviesViewModel.makeSearch(query: movieSearchResult) }),
-                           searchResult: $movieSearchResult)
-                    .navigationTitle("Results for '\(movieSearchResult)'")
+                            .onAppear(perform: { moviesViewModel.makeSearch(query: movieSearchResult) })
+                            .navigationTitle("Results for '\(movieSearchResult)'"))
+                    .navigationTitle("Find movies")
             }
             .tabItem {
                 Image(systemName: "play.rectangle")
@@ -50,10 +50,8 @@ struct ContentView_Previews: PreviewProvider {
 
 struct SearchView<Destination : View>: View {
     
-    var title: String
-    var destination: Destination
-    
     @Binding var searchResult: String
+    var destination: Destination
     
     var body: some View {
         VStack {
