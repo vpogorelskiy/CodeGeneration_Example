@@ -15,15 +15,41 @@ class ViewModel<Api: AbstractApi>: ObservableObject {
     
     @Published var items: [Api.Item] = .init()
     @Published var detailItem: Api.DetailItem?
+    @Published var isLoading = false
+    
+    private let batchSize = 20
+    private var lastQuery = ""
+    private var lastBatchIndex = 0
+    private var hasNext = true
     
     init(api: Api) {
         self.api = api
     }
     
     func makeSearch(query: String) {
+        guard query != lastQuery else { return }
+        lastQuery = query
+        lastBatchIndex = 0
+        isLoading = true
+        hasNext = true
         self.items = []
-        api.makeSearch(query: query, batchSize: 20, startIndex: 0) { [weak self] items, error in
+        api.makeSearch(query: query, batchSize: batchSize, startIndex: lastBatchIndex) { [weak self] items, error in
             self?.items = items
+            self?.isLoading = false
+        }
+    }
+    
+    func loadNextIfNeeded(for item: Api.Item) {
+        guard items.last?.id == item.id, hasNext == true else { return }
+        
+        isLoading = true
+        lastBatchIndex += 1
+        api.makeSearch(query: lastQuery, batchSize: batchSize, startIndex: lastBatchIndex) { [weak self] items, error in
+            self?.items.append(contentsOf: items)
+            if items.isEmpty {
+                self?.hasNext = false
+            }
+            self?.isLoading = false
         }
     }
     
@@ -33,6 +59,7 @@ class ViewModel<Api: AbstractApi>: ObservableObject {
             self?.detailItem = detailItem
         }
     }
+    
 }
 
 protocol ViewModelItem: Identifiable {

@@ -13,9 +13,19 @@ struct ResultsView<Api: AbstractApi>: View {
                                         .onAppear {
                                             viewModel.getDetails(forItem: item)},
                                        label: { Text(item.title.safeString) })
+                    .onAppear {
+                        viewModel.loadNextIfNeeded(for: item)
+                    }
+            }
+            if viewModel.isLoading {
+                HStack {
+                    Spacer()
+                    ProgressView()
+                    Spacer()
+                }
+                
             }
         }
-        .navigationTitle("Books")
     }
 }
 

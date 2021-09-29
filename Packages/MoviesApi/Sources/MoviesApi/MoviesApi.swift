@@ -9,7 +9,7 @@ open class MoviesAPI: ObservableObject {
     public init() {}
     
     public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([MovieShort], Error?)-> Void) {
-        MoviesSearchAPI.getMovies(s: query, apiKey: apiKey) { response, error in
+        MoviesSearchAPI.getMovies(s: query, apiKey: apiKey, page: startIndex + 1) { response, error in
             completion(response?.search ?? [], error)
         }
     }
