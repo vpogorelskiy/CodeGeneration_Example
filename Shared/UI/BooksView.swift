@@ -6,7 +6,7 @@ struct BooksView: View {
 
     var body: some View {
         List {
-            ForEach(booksViewModel.bookVolumes) { volume in
+            ForEach(booksViewModel.items) { volume in
                 let title = volume.volumeInfo.title
                 NavigationLink {
                     BooksDetailView(detailInfo: volume.volumeInfo)

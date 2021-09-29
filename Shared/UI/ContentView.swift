@@ -14,7 +14,7 @@ struct ContentView: View {
         TabView {
             NavigationView {
                 SearchView(title: "Find books",
-                           destination: BooksView()
+                           destination: ResultsView<BooksAPI>()
                             .environmentObject(booksViewModel)
                             .onAppear(perform: { booksViewModel.makeSearch(query: bookSearchResult) }),
                            searchResult: $bookSearchResult)
@@ -64,5 +64,30 @@ struct SearchView<Destination : View>: View {
                 Text("Search")
             }
         }
+    }
+}
+
+extension BooksVolume: ViewModelItem {
+    var title: String? {
+        return volumeInfo.title
+    }
+}
+
+extension VolumeInfo: ViewModelDetailItem {
+    var content: [ViewModelDetailRow] {
+        return []
+    }
+    
+    public var id: String {
+        return "\(hashValue)"
+    }
+}
+
+extension BooksAPI: ViewModel {
+    typealias Item = BooksVolume
+    typealias DetailItem = VolumeInfo
+    
+    func getDetails(forItem: Item) {
+        detailItem = forItem.volumeInfo
     }
 }

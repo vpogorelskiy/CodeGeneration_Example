@@ -3,7 +3,9 @@ import Foundation
 open class BooksAPI: ObservableObject {
     private let apiKey = "AIzaSyByCbQHo0C1m92KdiAAMyqZaTar-mcVb4o"
     
-    @Published public var bookVolumes: [BooksVolume] = []
+    @Published public var items: [BooksVolume] = []
+    
+    @Published public var detailItem: VolumeInfo = .init(title: "", description: "", imageLinks: .init())
     
     public init() {}
     
@@ -15,7 +17,7 @@ open class BooksAPI: ObservableObject {
                                 startIndex: startIndex,
                                 maxResults: batchSize,
                                 apiResponseQueue: .main) { [weak self] volumes, error in
-            self?.bookVolumes = volumes?.items ?? []
+            self?.items = volumes?.items ?? []
         }
     }
 }
