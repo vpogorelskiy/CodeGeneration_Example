@@ -6,7 +6,7 @@ import MoviesApi
 struct ContentView: View {
     
     @State private var bookSearchResult: String = ""
-    private var booksViewModel: BooksAPI = .init()
+    private var booksViewModel = ViewModel(api: BooksAPI())
     @State private var movieSearchResult: String = ""
     private var moviesViewModel: MoviesAPI = .init()
     
@@ -18,11 +18,11 @@ struct ContentView: View {
                             .environmentObject(booksViewModel)
                             .onAppear(perform: { booksViewModel.makeSearch(query: bookSearchResult) }),
                            searchResult: $bookSearchResult)
-                    .navigationTitle("Books search")
+                    .navigationTitle("Results for '\(bookSearchResult)'")
             }
             .tabItem {
                 Image(systemName: "books.vertical")
-                Text("Results for '\(bookSearchResult)'")
+                Text("Books")
             }
             NavigationView {
                 SearchView(title: "Find movies",
@@ -30,7 +30,7 @@ struct ContentView: View {
                             .environmentObject(moviesViewModel)
                             .onAppear(perform: { moviesViewModel.makeSearch(query: movieSearchResult) }),
                            searchResult: $movieSearchResult)
-                    .navigationTitle("Movies search")
+                    .navigationTitle("Results for '\(movieSearchResult)'")
             }
             .tabItem {
                 Image(systemName: "play.rectangle")
@@ -75,7 +75,12 @@ extension BooksVolume: ViewModelItem {
 
 extension VolumeInfo: ViewModelDetailItem {
     var content: [ViewModelDetailRow] {
-        return []
+        return [.init(title: "Title", value: title),
+                .init(title: "Authors", value: (authors ?? []).joined(separator: ", ")),
+                .init(title: "Published on", value: publishedDate.safeString),
+                .init(title: "Launguage", value: language.safeString),
+                .init(title: "Description", value: description.safeString)
+        ]
     }
     
     public var id: String {
@@ -83,11 +88,11 @@ extension VolumeInfo: ViewModelDetailItem {
     }
 }
 
-extension BooksAPI: ViewModel {
+extension BooksAPI: AbstractApi {
     typealias Item = BooksVolume
     typealias DetailItem = VolumeInfo
     
-    func getDetails(forItem: Item) {
-        detailItem = forItem.volumeInfo
+    func getDetails(forItem: Item, completion: (DetailItem, Error?) -> Void) {
+        completion(forItem.volumeInfo, nil)
     }
 }

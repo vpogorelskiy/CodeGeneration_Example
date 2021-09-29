@@ -1,14 +1,14 @@
 
 import SwiftUI
 
-struct ResultsView<Model: ViewModel>: View {
-    @EnvironmentObject var viewModel: Model
+struct ResultsView<Api: AbstractApi>: View {
+    @EnvironmentObject var viewModel: ViewModel<Api>
 
     var body: some View {
         List {
             ForEach(viewModel.items) { item in
                 NavigationLink {
-                    DetailView<Model>()
+                    DetailView<Api>()
                         .environmentObject(viewModel)
                         .onAppear {
                             viewModel.getDetails(forItem: item)
@@ -22,12 +22,12 @@ struct ResultsView<Model: ViewModel>: View {
     }
 }
 
-struct DetailView<Model: ViewModel>: View {
-    @EnvironmentObject var viewModel: Model
+struct DetailView<Api: AbstractApi>: View {
+    @EnvironmentObject var viewModel: ViewModel<Api>
     
     var body: some View {
         List {
-            ForEach(viewModel.detailItem.content) { item in
+            ForEach(viewModel.detailItem?.content ?? []) { item in
                 VStack(alignment: .leading) {
                     Text(item.title).font(.title)
                     Text(item.value)

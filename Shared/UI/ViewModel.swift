@@ -1,14 +1,38 @@
 import SwiftUI
+import BooksApi
 
-protocol ViewModel: ObservableObject {
+protocol AbstractApi {
     associatedtype Item: ViewModelItem
     associatedtype DetailItem: ViewModelDetailItem
     
-    var items: [Item] { get }
-    var detailItem: DetailItem { get }
+    func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([Item], Error?)-> Void)
+    func getDetails(forItem: Item, completion: (DetailItem, Error?) -> Void)
+}
+
+class ViewModel<Api: AbstractApi>: ObservableObject {
     
-    func makeSearch(query: String, batchSize: Int, startIndex: Int)
-    func getDetails(forItem: Item)
+    let api: Api
+    
+    @Published var items: [Api.Item] = .init()
+    @Published var detailItem: Api.DetailItem?
+    
+    init(api: Api) {
+        self.api = api
+    }
+    
+    func makeSearch(query: String) {
+        self.items = []
+        api.makeSearch(query: query, batchSize: 20, startIndex: 0) { [weak self] items, error in
+            self?.items = items
+        }
+    }
+    
+    func getDetails(forItem: Api.Item) {
+        self.detailItem = nil
+        api.getDetails(forItem: forItem) { [weak self] detailItem, error in
+            self?.detailItem = detailItem
+        }
+    }
 }
 
 protocol ViewModelItem: Identifiable {
