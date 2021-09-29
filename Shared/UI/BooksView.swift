@@ -34,20 +34,19 @@ struct BooksDetailView: View {
         static let ordered  = [title, authors, description]
     }
     
-    private var detailMap: [String: String] {
-        return [Titles.title : detailInfo.title,
-                Titles.authors: detailInfo.authors?.joined(separator: ", ") ?? "",
-                Titles.description: detailInfo.description ?? "",
-//                "Image" :
+    private var detailMap: [(String, String)] {
+        return [(Titles.title, detailInfo.title),
+                (Titles.authors, detailInfo.authors?.joined(separator: ", ") ?? ""),
+                (Titles.description, detailInfo.description.safeString)
         ]
     }
     
     var body: some View {
         List {
-            ForEach(Titles.ordered, id: \.self) { title in
+            ForEach(detailMap, id: \.0) { title in
                 VStack(alignment: .leading) {
-                    Text(title).font(.title)
-                    Text(detailMap[title] ?? "")
+                    Text(title.0).font(.title)
+                    Text(title.1)
                 }
             }
         }

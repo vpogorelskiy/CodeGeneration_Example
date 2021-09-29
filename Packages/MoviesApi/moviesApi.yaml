@@ -154,10 +154,8 @@ components:
           type: string
         Ratings: 
           type: array
-          items: 
-            type: object
-            items: 
-              $ref: '#/components/schemas/MovieRating'
+          items:
+            $ref: '#/components/schemas/MovieRating'
         Metascore: 
           type: string
         imdbRating: 

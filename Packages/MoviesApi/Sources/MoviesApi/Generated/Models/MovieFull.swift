@@ -26,7 +26,7 @@ public struct MovieFull: Codable, Hashable {
     public var country: String?
     public var awards: String?
     public var poster: String?
-    public var ratings: [[MovieRating]]?
+    public var ratings: [MovieRating]?
     public var metascore: String?
     public var imdbRating: String?
     public var imdbVotes: String?
@@ -38,7 +38,7 @@ public struct MovieFull: Codable, Hashable {
     public var website: String?
     public var response: String?
 
-    public init(title: String, year: String? = nil, rated: String? = nil, released: String? = nil, runtime: String? = nil, genre: String? = nil, director: String? = nil, writer: String? = nil, actors: String? = nil, plot: String? = nil, language: String? = nil, country: String? = nil, awards: String? = nil, poster: String? = nil, ratings: [[MovieRating]]? = nil, metascore: String? = nil, imdbRating: String? = nil, imdbVotes: String? = nil, imdbID: String, type: String? = nil, DVD: String? = nil, boxOffice: String? = nil, production: String? = nil, website: String? = nil, response: String? = nil) {
+    public init(title: String, year: String? = nil, rated: String? = nil, released: String? = nil, runtime: String? = nil, genre: String? = nil, director: String? = nil, writer: String? = nil, actors: String? = nil, plot: String? = nil, language: String? = nil, country: String? = nil, awards: String? = nil, poster: String? = nil, ratings: [MovieRating]? = nil, metascore: String? = nil, imdbRating: String? = nil, imdbVotes: String? = nil, imdbID: String, type: String? = nil, DVD: String? = nil, boxOffice: String? = nil, production: String? = nil, website: String? = nil, response: String? = nil) {
         self.title = title
         self.year = year
         self.rated = rated

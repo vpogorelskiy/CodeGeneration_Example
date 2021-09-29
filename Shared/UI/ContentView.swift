@@ -30,7 +30,7 @@ struct ContentView: View {
                             .environmentObject(moviesViewModel)
                             .onAppear(perform: { moviesViewModel.makeSearch(query: movieSearchResult) }),
                            searchResult: $movieSearchResult)
-                    .navigationTitle("Books search")
+                    .navigationTitle("Movies search")
             }
             .tabItem {
                 Image(systemName: "play.rectangle")
