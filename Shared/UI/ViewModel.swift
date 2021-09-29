@@ -6,7 +6,7 @@ protocol AbstractApi {
     associatedtype DetailItem: ViewModelDetailItem
     
     func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([Item], Error?)-> Void)
-    func getDetails(forItem: Item, completion: (DetailItem, Error?) -> Void)
+    func getDetails(forItem: Item, completion: @escaping (DetailItem?, Error?) -> Void)
 }
 
 class ViewModel<Api: AbstractApi>: ObservableObject {

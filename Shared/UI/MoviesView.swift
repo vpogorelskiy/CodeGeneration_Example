@@ -11,7 +11,7 @@ struct MoviesView: View {
                 NavigationLink {
                     MovieDetailView(detailInfo: $moviesViewModel.detailedMovie)
                         .onAppear {
-                            moviesViewModel.getMovieDetails(id: movie.imdbID)
+//                            moviesViewModel.getDetails(forItem: movie, completion: {})
                         }
                 } label: {
                     Text(title)

@@ -7,8 +7,9 @@ struct ContentView: View {
     
     @State private var bookSearchResult: String = ""
     private var booksViewModel = ViewModel(api: BooksAPI())
+    
     @State private var movieSearchResult: String = ""
-    private var moviesViewModel: MoviesAPI = .init()
+    private var moviesViewModel = ViewModel(api: MoviesAPI())
     
     var body: some View {
         TabView {
@@ -26,7 +27,7 @@ struct ContentView: View {
             }
             NavigationView {
                 SearchView(title: "Find movies",
-                           destination: MoviesView()
+                           destination: ResultsView<MoviesAPI>()
                             .environmentObject(moviesViewModel)
                             .onAppear(perform: { moviesViewModel.makeSearch(query: movieSearchResult) }),
                            searchResult: $movieSearchResult)
@@ -92,7 +93,29 @@ extension BooksAPI: AbstractApi {
     typealias Item = BooksVolume
     typealias DetailItem = VolumeInfo
     
-    func getDetails(forItem: Item, completion: (DetailItem, Error?) -> Void) {
+    func getDetails(forItem: Item, completion: (DetailItem?, Error?) -> Void) {
         completion(forItem.volumeInfo, nil)
+    }
+}
+
+extension MoviesAPI: AbstractApi {
+    typealias Item = MovieShort
+    typealias DetailItem = MovieFull
+}
+
+extension MovieShort: ViewModelItem {}
+
+extension MovieFull: ViewModelDetailItem {
+    var content: [ViewModelDetailRow] {
+        return [.init(title: "Title", value: title),
+                .init(title: "Year", value: released.safeString),
+                .init(title: "Actors", value: actors.safeString),
+                .init(title: "Launguage", value: language.safeString),
+                .init(title: "Description", value: plot.safeString)
+        ]
+    }
+    
+    public var id: String {
+        return "\(hashValue)"
     }
 }

@@ -8,18 +8,16 @@ open class MoviesAPI: ObservableObject {
     
     public init() {}
     
-    public func makeSearch(query: String, page: Int = 1) {
-        MoviesSearchAPI.getMovies(s: query, apiKey: apiKey) { [weak self] response, error in
-            self?.movies = response?.search ?? []
+    public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([MovieShort], Error?)-> Void) {
+        MoviesSearchAPI.getMovies(s: query, apiKey: apiKey) { response, error in
+            completion(response?.search ?? [], error)
         }
     }
     
-    public func getMovieDetails(id: String) {
+    public func getDetails(forItem: MovieShort, completion: @escaping (MovieFull?, Error?) -> Void) {
         detailedMovie = .empty
-        MovieDetailsAPI.getMovieDetails(i: id, apiKey: apiKey) { [weak self] movie, error in
-            if let movie = movie {
-                self?.detailedMovie = movie
-            }
+        MovieDetailsAPI.getMovieDetails(i: forItem.imdbID, apiKey: apiKey) { movie, error in
+            completion(movie, error)
         }
     }
 }
