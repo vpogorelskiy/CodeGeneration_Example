@@ -7,16 +7,12 @@ struct ResultsView<Api: AbstractApi>: View {
     var body: some View {
         List {
             ForEach(viewModel.items) { item in
-                NavigationLink {
-                    DetailView<Api>()
-                        .environmentObject(viewModel)
-                        .navigationTitle(item.title.safeString)
-                        .onAppear {
-                            viewModel.getDetails(forItem: item)
-                        }
-                } label: {
-                    Text(item.title.safeString)
-                }
+                CustomNavigation.Link (destination: DetailView<Api>()
+                                        .environmentObject(viewModel)
+                                        .customNavigationTitle(item.title.safeString)
+                                        .onAppear {
+                                            viewModel.getDetails(forItem: item)},
+                                       label: { Text(item.title.safeString) })
             }
         }
         .navigationTitle("Books")

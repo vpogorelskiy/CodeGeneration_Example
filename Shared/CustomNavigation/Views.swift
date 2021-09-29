@@ -16,8 +16,8 @@ extension CustomNavigation {
     struct Link<Label: View, Destination: View>: View  {
         @EnvironmentObject private var viewModel: ViewModel
         
-        private let label: Label
         private let destination: Destination
+        private let label: Label
         
         public init(destination: Destination, @ViewBuilder label: @escaping () -> Label) {
             self.destination = destination

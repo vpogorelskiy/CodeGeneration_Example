@@ -13,25 +13,25 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            NavigationView {
+            CustomNavigation.NavigationView {
                 SearchView(searchResult: $bookSearchResult,
                            destination: ResultsView<BooksAPI>()
                             .environmentObject(booksViewModel)
                             .onAppear(perform: { booksViewModel.makeSearch(query: bookSearchResult) })
-                            .navigationTitle("Results for '\(bookSearchResult)'"))
-                    .navigationTitle("Find books")
+                            .customNavigationTitle("Results for '\(bookSearchResult)'"))
+                    .customNavigationTitle("Find books")
             }
             .tabItem {
                 Image(systemName: "books.vertical")
                 Text("Books")
             }
-            NavigationView {
+            CustomNavigation.NavigationView {
                 SearchView(searchResult: $movieSearchResult,
                            destination: ResultsView<MoviesAPI>()
                             .environmentObject(moviesViewModel)
                             .onAppear(perform: { moviesViewModel.makeSearch(query: movieSearchResult) })
-                            .navigationTitle("Results for '\(movieSearchResult)'"))
-                    .navigationTitle("Find movies")
+                            .customNavigationTitle("Results for '\(movieSearchResult)'"))
+                    .customNavigationTitle("Find movies")
             }
             .tabItem {
                 Image(systemName: "play.rectangle")
@@ -59,9 +59,12 @@ struct SearchView<Destination : View>: View {
                       text: $searchResult)
                 .multilineTextAlignment(.center)
             Spacer().frame(height: 44)
-            NavigationLink(destination: destination) {
-                Text("Search")
-            }
+            CustomNavigation.Link(destination: destination,
+                                  label: { Text("Search") })
+//
+//            NavigationLink(destination: destination) {
+//                Text("Search")
+//            }
         }
     }
 }
