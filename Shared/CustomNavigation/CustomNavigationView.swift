@@ -87,11 +87,11 @@ struct CustomNavigation_Previews: PreviewProvider {
                 let endDest = Text("THE END")
                     .customNavigationTitle("End Header")
                 
-                let second = CustomNavigation.Link(destination: endDest,
+                let second = CustomNavigation.Link(destination: { endDest },
                                                    label: { Text("To end") })
                     .customNavigationTitle("2nd header")
                 
-                CustomNavigation.Link(destination: second,
+                CustomNavigation.Link(destination: { second },
                                                    label: { Text("To 2nd") })
                     .customNavigationTitle("First header")
                 

@@ -1,7 +1,7 @@
 import SwiftUI
 import CoreGraphics
 
-private extension View {
+extension View {
     func favoriteAnimation(from: CGPoint, to: CGPoint, progress: Double) -> some View {
         self.modifier(FavoriteAnimation(from: from, to: to, progress: progress))
     }

@@ -59,12 +59,8 @@ struct SearchView<Destination : View>: View {
                       text: $searchResult)
                 .multilineTextAlignment(.center)
             Spacer().frame(height: 44)
-            CustomNavigation.Link(destination: destination,
+            CustomNavigation.Link(destination: { destination },
                                   label: { Text("Search") })
-//
-//            NavigationLink(destination: destination) {
-//                Text("Search")
-//            }
         }
     }
 }

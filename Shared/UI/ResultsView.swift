@@ -3,16 +3,12 @@ import SwiftUI
 
 struct ResultsView<Api: AbstractApi>: View {
     @EnvironmentObject var viewModel: ViewModel<Api>
-
+    
     var body: some View {
         List {
             ForEach(viewModel.items) { item in
-                CustomNavigation.Link (destination: DetailView<Api>()
-                                        .environmentObject(viewModel)
-                                        .customNavigationTitle(item.title.safeString)
-                                        .onAppear {
-                                            viewModel.getDetails(forItem: item)},
-                                       label: { Text(item.title.safeString) })
+                ResultsRow(viewModel: viewModel,
+                           item: item)
                     .onAppear {
                         viewModel.loadNextIfNeeded(for: item)
                     }
@@ -23,9 +19,29 @@ struct ResultsView<Api: AbstractApi>: View {
                     ProgressView()
                     Spacer()
                 }
-                
             }
         }
+    }
+}
+
+struct ResultsRow<Api: AbstractApi>: View {
+    
+    @State var viewModel: ViewModel<Api>
+    @State var item: Api.Item
+    
+    var body: some View {
+        
+        CustomNavigation.Link (destination: {
+            DetailView<Api>()
+                .environmentObject(viewModel)
+                .customNavigationTitle(item.title.safeString)
+                .onAppear {
+                    viewModel.getDetails(forItem: item)
+                }
+        }, label: {
+            Text(item.title.safeString)
+                .foregroundColor(.black)
+        })
     }
 }
 
