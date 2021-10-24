@@ -1,6 +1,6 @@
 import SwiftUI
 
-enum CustomNavigation {
+public extension CustomNavigation {
     struct NavigationView<Content>: View where Content: View {
         @ObservedObject private var viewModel: ViewModel
         private let rootView: Content
@@ -41,7 +41,7 @@ enum CustomNavigation {
             .frame(height: 44)
         }
         
-        var body: some View {
+        public var body: some View {
             VStack {
                 navigationBar
                 Spacer()

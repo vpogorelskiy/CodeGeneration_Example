@@ -1,5 +1,6 @@
 
 import SwiftUI
+import CustomNavigation
 
 struct ResultsView<Api: AbstractApi>: View {
     @EnvironmentObject var viewModel: ViewModel<Api>

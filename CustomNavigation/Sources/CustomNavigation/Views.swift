@@ -1,18 +1,18 @@
 import SwiftUI
 import Foundation
 
-extension CustomNavigation {
+public extension CustomNavigation {
     struct TitledView: View {
         let title: String
         let wrappedView: AnyView
         
-        var body: some View {
+        public var body: some View {
             wrappedView
         }
     }
 }
 
-extension CustomNavigation {
+public extension CustomNavigation {
     struct Link<Label: View, Destination: View>: View  {
         @EnvironmentObject private var viewModel: ViewModel
         
