@@ -13,6 +13,8 @@
 		2B1107B82725A7A7005E44A5 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B72725A7A7005E44A5 /* BooksApi */; };
 		2B1107BA2725A7A9005E44A5 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B92725A7A9005E44A5 /* MoviesApi */; };
 		2B1107BC2725A7AC005E44A5 /* CustomNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107BB2725A7AC005E44A5 /* CustomNavigation */; };
+		2B1107BF2725A922005E44A5 /* SearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107BE2725A922005E44A5 /* SearchUI */; };
+		2B1107C12725A9BA005E44A5 /* SearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107C02725A9BA005E44A5 /* SearchUI */; };
 		2B8337E926F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */; };
 		2B8337EA26F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */; };
 		2B8337EB26F8389000CBF76F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D726F8388E00CBF76F /* ContentView.swift */; };
@@ -37,6 +39,7 @@
 		2B1107AE2725A770005E44A5 /* CustomNavigation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CustomNavigation; path = Packages/CustomNavigation; sourceTree = "<group>"; };
 		2B1107AF2725A784005E44A5 /* BooksApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BooksApi; path = Packages/BooksApi; sourceTree = "<group>"; };
 		2B1107B02725A794005E44A5 /* MoviesApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MoviesApi; path = Packages/MoviesApi; sourceTree = "<group>"; };
+		2B1107BD2725A808005E44A5 /* SearchUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SearchUI; path = Packages/SearchUI; sourceTree = "<group>"; };
 		2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTUS_Homework_2App.swift; sourceTree = "<group>"; };
 		2B8337D726F8388E00CBF76F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2B8337D826F8389000CBF76F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1107BF2725A922005E44A5 /* SearchUI in Frameworks */,
 				2B1107B62725A7A1005E44A5 /* CustomNavigation in Frameworks */,
 				2B1107B42725A79F005E44A5 /* MoviesApi in Frameworks */,
 				2B1107B22725A79C005E44A5 /* BooksApi in Frameworks */,
@@ -68,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B1107C12725A9BA005E44A5 /* SearchUI in Frameworks */,
 				2B1107BC2725A7AC005E44A5 /* CustomNavigation in Frameworks */,
 				2B1107BA2725A7A9005E44A5 /* MoviesApi in Frameworks */,
 				2B1107B82725A7A7005E44A5 /* BooksApi in Frameworks */,
@@ -80,6 +85,7 @@
 		2B1107AD2725A770005E44A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				2B1107BD2725A808005E44A5 /* SearchUI */,
 				2B1107AE2725A770005E44A5 /* CustomNavigation */,
 				2B1107AF2725A784005E44A5 /* BooksApi */,
 				2B1107B02725A794005E44A5 /* MoviesApi */,
@@ -192,6 +198,7 @@
 				2B1107B12725A79C005E44A5 /* BooksApi */,
 				2B1107B32725A79F005E44A5 /* MoviesApi */,
 				2B1107B52725A7A1005E44A5 /* CustomNavigation */,
+				2B1107BE2725A922005E44A5 /* SearchUI */,
 			);
 			productName = "OTUS_Homework_2 (iOS)";
 			productReference = 2B8337DD26F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -214,6 +221,7 @@
 				2B1107B72725A7A7005E44A5 /* BooksApi */,
 				2B1107B92725A7A9005E44A5 /* MoviesApi */,
 				2B1107BB2725A7AC005E44A5 /* CustomNavigation */,
+				2B1107C02725A9BA005E44A5 /* SearchUI */,
 			);
 			productName = "OTUS_Homework_2 (macOS)";
 			productReference = 2B8337E526F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -568,6 +576,14 @@
 		2B1107BB2725A7AC005E44A5 /* CustomNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CustomNavigation;
+		};
+		2B1107BE2725A922005E44A5 /* SearchUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SearchUI;
+		};
+		2B1107C02725A9BA005E44A5 /* SearchUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SearchUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
