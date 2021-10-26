@@ -1,4 +1,4 @@
-protocol IViewModel {
+public protocol IViewModel {
     var isLoading: Bool { get }
     var items: [IViewModelItem] { get }
     func makeSearch(query: String)

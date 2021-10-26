@@ -17,7 +17,7 @@ import SearchUI
 //}
 //
 //extension VolumeInfo: ViewModelDetailItem {
-//    var content: [ViewModelDetailRow] {
+//    var content: [ViewModelDetailItem] {
 //        return [.init(title: "Title", value: title),
 //                .init(title: "Authors", value: (authors ?? []).joined(separator: ", ")),
 //                .init(title: "Published on", value: publishedDate.safeString),

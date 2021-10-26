@@ -1,9 +1,9 @@
 
 public protocol AbstractApi {
-    associatedtype Item: IViewModelItem
-    associatedtype DetailItem: IViewModelDetailItem
+//    associatedtype Item: IViewModelItem
+//    associatedtype DetailItem: IViewModelDetailItem
     
-    func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([Item], Error?)-> Void)
+    func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([ApiItem], Error?)-> Void)
     func getDetails(forItem: ApiItem, completion: @escaping (ApiDetailItem?, Error?) -> Void)
 }
 
@@ -13,5 +13,5 @@ public protocol ApiItem {
 
 public protocol ApiDetailItem {
     var id: String { get }
-    var content: [String: Any] { get }
+    var content: [String: String] { get }
 }

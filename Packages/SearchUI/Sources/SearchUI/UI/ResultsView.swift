@@ -49,11 +49,15 @@ struct DetailView: View {
     let detailViewModel: IDetailViewModel
     
     var body: some View {
+        let dict = detailViewModel.content
+        let keys = dict.map{ $0.key }
+        let values = dict.map { $0.value }
+        
         List {
-            ForEach(detailViewModel.content) { item in
+            ForEach(keys.indices) {index in
                 VStack(alignment: .leading) {
-                    Text(item.title).font(.title)
-                    Text(item.value)
+                    Text(keys[index]).font(.title)
+                    Text("\(values[index])")
                 }
             }
         }
