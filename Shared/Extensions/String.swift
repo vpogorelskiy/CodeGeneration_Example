@@ -1,3 +1,3 @@
-extension Optional where Wrapped == String {
-    var safeString: String { return self ?? "" }
-}
+//extension Optional where Wrapped == String {
+//    var safeString: String { return self ?? "" }
+//}

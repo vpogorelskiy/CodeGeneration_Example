@@ -2,19 +2,20 @@
 import SwiftUI
 import BooksApi
 import MoviesApi
-import CustomNavigation
+//import CustomNavigation
 import SearchUI
 
 struct ContentView: View {
     
-    @State private var bookSearchResult: String = ""
-    private var booksViewModel = ViewModel(api: BooksAPI())
+//    @State private var bookSearchResult: String = ""
+//    private var booksViewModel = ViewModel(api: BooksAPI())
     
-    @State private var movieSearchResult: String = ""
-    private var moviesViewModel = ViewModel(api: MoviesAPI())
+//    @State private var movieSearchResult: String = ""
+//    private var moviesViewModel = ViewModel(api: MoviesAPI())
     
     var body: some View {
         TabView {
+            
 //            CustomNavigation.NavigationView {
 //                SearchView(searchResult: $bookSearchResult,
 //                           destination: ResultsView<BooksAPI>()

@@ -3,7 +3,7 @@ import Foundation
 
 public extension CustomNavigation {
     struct TitledView: View {
-        let title: String
+        let title: String?
         let wrappedView: AnyView
         
         public var body: some View {

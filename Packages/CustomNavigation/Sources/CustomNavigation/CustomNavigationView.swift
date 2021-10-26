@@ -14,11 +14,11 @@ public extension CustomNavigation {
         
         var navTitle: String {
             if let topWrapped = viewModel.topView {
-                return topWrapped.title
+                return topWrapped.title ?? ""
             }
             
             if let rootWrapped = rootView as? CustomNavigation.TitledView {
-                return rootWrapped.title
+                return rootWrapped.title ?? ""
             }
             
             return defaultTitle

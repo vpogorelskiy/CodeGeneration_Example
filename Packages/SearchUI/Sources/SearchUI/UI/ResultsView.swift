@@ -2,8 +2,8 @@
 import SwiftUI
 import CustomNavigation
 
-struct ResultsView<Api: AbstractApi>: View {
-    var viewModel: AbstractViewModel
+struct ResultsView: View {
+    var viewModel: IViewModel
     
     var body: some View {
         List {
@@ -27,31 +27,30 @@ struct ResultsView<Api: AbstractApi>: View {
 
 struct ResultsRow: View {
     
-    @State var viewModel: AbstractViewModel
-    @State var item: ViewModelItem
+    var viewModel: IViewModel
+    var item: IViewModelItem
     
     var body: some View {
         
         CustomNavigation.Link (destination: {
-            DetailView()
-                .environmentObject(viewModel.detailViewModel(for: item))
-                .customNavigationTitle(item.title.safeString)
+            DetailView(detailViewModel: viewModel.detailViewModel(for: item))
+                .customNavigationTitle(item.title)
                 .onAppear {
                     
                 }
         }, label: {
-            Text(item.title.safeString)
+            Text(item.title)
                 .foregroundColor(.black)
         })
     }
 }
 
 struct DetailView: View {
-    @Published var detailViewModel: DetailViewModel?
+    let detailViewModel: IDetailViewModel
     
     var body: some View {
         List {
-            ForEach(detailViewModel?.content ?? []) { item in
+            ForEach(detailViewModel.content) { item in
                 VStack(alignment: .leading) {
                     Text(item.title).font(.title)
                     Text(item.value)

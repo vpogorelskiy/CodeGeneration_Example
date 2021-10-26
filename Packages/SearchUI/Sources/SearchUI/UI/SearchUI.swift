@@ -3,19 +3,22 @@ import CustomNavigation
 
 public struct SearchUI {}
 
-public struct SearchUIView {
+public struct SearchUIView: View {
     
     @State private var searchResult: String = ""
     
-    var viewModel: AbstractViewModel
+    var viewModel: IViewModel
     
-    var body: some View {
+    private var destination: some View {
+        ResultsView(viewModel: viewModel)
+         .onAppear(perform: { viewModel.makeSearch(query: searchResult) })
+         .customNavigationTitle("Results for '\($searchResult)'")
+    }
+    
+    public var body: some View {
         CustomNavigation.NavigationView {
             SearchView(searchResult: $searchResult,
-                       destination: ResultsView<BooksAPI>()
-                        .environmentObject(viewModel)
-                        .onAppear(perform: { viewModel.makeSearch(query: $searchResult) })
-                        .customNavigationTitle("Results for '\($searchResult)'"))
+                       destination: destination)
                 .customNavigationTitle("Find books")
         }
     }
