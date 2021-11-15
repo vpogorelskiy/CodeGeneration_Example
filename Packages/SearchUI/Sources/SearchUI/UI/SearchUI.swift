@@ -9,6 +9,10 @@ public struct SearchUIView: View {
     
     var viewModel: IViewModel
     
+    public init(viewModel: IViewModel) {
+        self.viewModel = viewModel
+    }
+    
     private var destination: some View {
         ResultsView(viewModel: viewModel)
          .onAppear(perform: { viewModel.makeSearch(query: searchResult) })

@@ -15,9 +15,7 @@ class ViewModel<Api: AbstractApi>: IViewModel {
     private var lastBatchIndex = 0
     private var hasNext = true
 
-    public init(api: Api) {
-        self.api = api
-    }
+    public init() {}
 
     func makeSearch(query: String) {
         guard query != lastQuery else { return }

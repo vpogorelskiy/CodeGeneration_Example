@@ -9,6 +9,11 @@ import SwiftUI
 
 @main
 struct OTUS_Homework_2App: App {
+    
+    init() {
+        ViewBuilder.registerDependencies()
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

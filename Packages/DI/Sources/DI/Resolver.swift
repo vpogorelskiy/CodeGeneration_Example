@@ -1,11 +1,11 @@
 public class Resolver {
-    static let sharedInstance: Resolver = .init()
+    public static let sharedInstance: Resolver = .init()
     
-    typealias ResolveBlock<T> = (Resolver) -> T
+    public typealias ResolveBlock<T> = (Resolver) -> T
     
     private var resolveBlocks: [String: ResolveBlock<Any>] = [:]
     
-    func register<T>(_ type: T.Type, resolveBlock: @escaping ResolveBlock<T>) {
+    public func register<T>(_ type: T.Type, resolveBlock: @escaping ResolveBlock<T>) {
         let typeName = stringFrom(type: type.self)
         resolveBlocks[typeName] = resolveBlock
     }
