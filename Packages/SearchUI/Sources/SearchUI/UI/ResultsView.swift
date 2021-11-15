@@ -6,22 +6,6 @@ import Combine
 
 struct ResultsView: View {
     var viewModel: IViewModel
-//    {
-//        didSet {
-//            viewModel.itemsPublisher
-//                .receive(on: RunLoop.main)
-//                .sink { items in
-//                    self.updateItems(items)
-//                }
-//                .store(in: &cancellables)
-//            viewModel.isLoadingPublisher
-//                .receive(on: RunLoop.main)
-//                .sink { isLoading in
-//                    self.isLoading = isLoading
-//                }
-//                .store(in: &cancellables)
-//        }
-//    }
     
     @State private var cancellables: Set<AnyCancellable> = []
     @State private var items: [IViewModelItem] = []
@@ -85,20 +69,17 @@ struct ResultsRow: View {
 
 struct DetailView: View {
     let detailViewModel: IDetailViewModel
-    @State var content: [String: String] = [:]
+    @State var rows: [IDetailViewModelItem] = []
     
     var body: some View {
-        let keys = content.map{ $0.key }
-        let values = content.map { $0.value }
-        
         List {
-            ForEach(keys.indices) {index in
+            ForEach(rows, id: \.id) { row in
                 VStack(alignment: .leading) {
-                    Text(keys[index]).font(.title)
-                    Text("\(values[index])")
+                    Text(row.title).font(.title)
+                    Text(row.value)
                 }
             }
         }
-        .onReceive(detailViewModel.contentPublisher) { content = $0 }
+        .onReceive(detailViewModel.contentPublisher) { rows = $0 }
     }
 }

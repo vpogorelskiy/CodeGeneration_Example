@@ -16,7 +16,7 @@ public struct SearchUIView: View {
     private var destination: some View {
         ResultsView(viewModel: viewModel)
          .onAppear(perform: { viewModel.makeSearch(query: searchResult) })
-         .customNavigationTitle("Results for '\($searchResult)'")
+         .customNavigationTitle("Results for '\(searchResult)'")
     }
     
     public var body: some View {

@@ -16,4 +16,19 @@ class MoviesViewModel: ViewModel<MoviesAPI> {
     }
 }
 
-class MoviesDetailViewModel: DetailViewModel<MoviesAPI> {}
+class MoviesDetailViewModel: DetailViewModel<MoviesAPI> {
+    override func reduceItem(_ detailApiItem: ApiDetailItem) -> [IDetailViewModelItem] {
+        guard let item = detailApiItem as? MovieFull else {
+            return []
+        }
+        
+        let content: [DetailViewModelItem] = [.init(title: "Title", value: item.title),
+                                              .init(title: "Year", value: item.released.safeString),
+                                              .init(title: "Actors", value: item.actors.safeString),
+                                              .init(title: "Launguage", value: item.language.safeString),
+                                              .init(title: "Description", value: item.plot.safeString)
+        ]
+        
+        return content
+    }   
+}

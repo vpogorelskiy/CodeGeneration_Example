@@ -13,5 +13,4 @@ public protocol ApiItem {
 
 public protocol ApiDetailItem {
     var id: String { get }
-    var content: [String: String] { get }
 }

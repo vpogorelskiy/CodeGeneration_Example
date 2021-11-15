@@ -3,8 +3,8 @@ import SearchUI
 import DI
 
 class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
-    @Published var content: [String: String] = [:]
-    var contentPublisher: Published<[String: String]>.Publisher { $content }
+    @Published var content: [IDetailViewModelItem] = []
+    var contentPublisher: Published<[IDetailViewModelItem]>.Publisher { $content }
     
     @Injected private var api: Api!
     private let item: ViewModelItem
@@ -15,14 +15,20 @@ class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
     
     func getDetails() {
         api.getDetails(forItem: item.apiItem) { [weak self] detaiApiItem, error in
-            self?.content = detaiApiItem?.content ?? [:]
+            if let detaiApiItem = detaiApiItem {
+                self?.content = self?.reduceItem(detaiApiItem) ?? []
+            }
         }
+    }
+    
+    func reduceItem(_ detailApiItem: ApiDetailItem) -> [IDetailViewModelItem] {
+        return []
     }
 }
 
-public struct ViewModelDetailItem: Identifiable {
-    var title: String
-    var value: String
+public struct DetailViewModelItem: IDetailViewModelItem {
+    public var title: String
+    public var value: String
     
     public var id: String { return title }
 }
