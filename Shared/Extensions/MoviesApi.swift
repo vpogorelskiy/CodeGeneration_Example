@@ -1,24 +1,38 @@
 import MoviesApi
 import SearchUI
 
-//extension MoviesAPI: AbstractApi {
-//    typealias Item = MovieShort
-//    typealias DetailItem = MovieFull
-//}
-//
-//extension MovieShort: ViewModelItem {}
-//
-//extension MovieFull: ViewModelDetailItem {
-//    var content: [ViewModelDetailItem] {
-//        return [.init(title: "Title", value: title),
-//                .init(title: "Year", value: released.safeString),
-//                .init(title: "Actors", value: actors.safeString),
-//                .init(title: "Launguage", value: language.safeString),
-//                .init(title: "Description", value: plot.safeString)
-//        ]
-//    }
-//
-//    public var id: String {
-//        return "\(hashValue)"
-//    }
-//}
+extension MoviesAPI: AbstractApi {
+    public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([ApiItem], Error?) -> Void) {
+        perform(query: query, batchSize: batchSize, startIndex: startIndex) { movieItems, error in
+            completion(movieItems, error)
+        }
+    }
+}
+
+extension MoviesAPI: AbstractDetailApi {
+    public func getDetails(forItem: ApiItem, completion: @escaping (ApiDetailItem?, Error?) -> Void) {
+        guard let item = forItem as? MovieShort else {
+            completion(nil, nil)
+            return
+        }
+        getMovieDetails(for: item, completion: completion)
+    }
+}
+
+
+extension MovieShort: ApiItem {}
+
+extension MovieFull: ApiDetailItem {
+    public var content: [String: String] {
+        return ["Title": title,
+                "Year": released.safeString,
+                "Actors": actors.safeString,
+                "Launguage": language.safeString,
+                "Description": plot.safeString
+        ]
+    }
+
+    public var id: String {
+        return "\(hashValue)"
+    }
+}
