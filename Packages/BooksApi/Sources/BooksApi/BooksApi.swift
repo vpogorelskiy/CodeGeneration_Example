@@ -9,7 +9,7 @@ open class BooksAPI: ObservableObject {
         BookVolumesAPI.getBooks(q: query,
                                 key: apiKey,
                                 printType: PrintType.books.rawValue,
-                                startIndex: startIndex * batchSize - 1,
+                                startIndex: startIndex * batchSize,
                                 maxResults: batchSize,
                                 apiResponseQueue: .main) { volumes, error in
             completion(volumes?.items ?? [], error)
