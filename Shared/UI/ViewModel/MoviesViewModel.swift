@@ -2,7 +2,7 @@ import SearchUI
 import MoviesApi
 
 class MoviesViewModel: ViewModel<MoviesAPI> {
-    override func reduceItems(_ apiItems: [ApiItem]) -> [ViewModelItem] {
+    override func reduceItems(_ apiItems: [IApiItem]) -> [ViewModelItem] {
         guard let bookItems = apiItems as? [MovieShort] else {
             return []
         }
@@ -17,7 +17,7 @@ class MoviesViewModel: ViewModel<MoviesAPI> {
 }
 
 class MoviesDetailViewModel: DetailViewModel<MoviesAPI> {
-    override func reduceItem(_ detailApiItem: ApiDetailItem) -> [IDetailViewModelItem] {
+    override func reduceItem(_ detailApiItem: IDetailApiItem) -> [IDetailViewModelItem] {
         guard let item = detailApiItem as? MovieFull else {
             return []
         }
@@ -30,5 +30,5 @@ class MoviesDetailViewModel: DetailViewModel<MoviesAPI> {
         ]
         
         return content
-    }   
+    }
 }

@@ -2,7 +2,7 @@ import Foundation
 import SearchUI
 import DI
 
-class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
+class DetailViewModel<Api: IDetailApi>: IDetailViewModel {
     @Published var content: [IDetailViewModelItem] = []
     var contentPublisher: Published<[IDetailViewModelItem]>.Publisher { $content }
     
@@ -21,7 +21,7 @@ class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
         }
     }
     
-    func reduceItem(_ detailApiItem: ApiDetailItem) -> [IDetailViewModelItem] {
+    func reduceItem(_ detailApiItem: IDetailApiItem) -> [IDetailViewModelItem] {
         return []
     }
 }

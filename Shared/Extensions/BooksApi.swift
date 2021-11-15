@@ -1,16 +1,16 @@
 import BooksApi
 import SearchUI
 
-extension BooksAPI: AbstractApi {
-    public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([ApiItem], Error?) -> Void) {
+extension BooksAPI: IApi {
+    public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([IApiItem], Error?) -> Void) {
         perform(query: query, batchSize: batchSize, startIndex: startIndex) { bookVolumes, error in
             completion(bookVolumes, error)
         }
     }
 }
 
-extension BooksAPI: AbstractDetailApi {
-    public func getDetails(forItem: ApiItem, completion: (ApiDetailItem?, Error?) -> Void) {
+extension BooksAPI: IDetailApi {
+    public func getDetails(forItem: IApiItem, completion: (IDetailApiItem?, Error?) -> Void) {
         guard let item = forItem as? BooksVolume else {
             completion(nil, nil)
             return
@@ -20,22 +20,13 @@ extension BooksAPI: AbstractDetailApi {
     }
 }
 
-extension BooksVolume: ApiItem {
+extension BooksVolume: IApiItem {
     var title: String? {
         return volumeInfo.title
     }
 }
 
-extension VolumeInfo: ApiDetailItem {
-    public var content: [String: String] {
-        return ["Title" : title,
-                "Authors": (authors ?? []).joined(separator: ", "),
-                "Published on": publishedDate ?? "",
-                "Launguage": language ?? "",
-                "Description": description ?? ""
-        ]
-    }
-    
+extension VolumeInfo: IDetailApiItem {
     public var id: String {
         return "\(hashValue)"
     }

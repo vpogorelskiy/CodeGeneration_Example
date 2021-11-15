@@ -1,16 +1,16 @@
 import MoviesApi
 import SearchUI
 
-extension MoviesAPI: AbstractApi {
-    public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([ApiItem], Error?) -> Void) {
+extension MoviesAPI: IApi {
+    public func makeSearch(query: String, batchSize: Int, startIndex: Int, completion: @escaping ([IApiItem], Error?) -> Void) {
         perform(query: query, batchSize: batchSize, startIndex: startIndex) { movieItems, error in
             completion(movieItems, error)
         }
     }
 }
 
-extension MoviesAPI: AbstractDetailApi {
-    public func getDetails(forItem: ApiItem, completion: @escaping (ApiDetailItem?, Error?) -> Void) {
+extension MoviesAPI: IDetailApi {
+    public func getDetails(forItem: IApiItem, completion: @escaping (IDetailApiItem?, Error?) -> Void) {
         guard let item = forItem as? MovieShort else {
             completion(nil, nil)
             return
@@ -20,18 +20,9 @@ extension MoviesAPI: AbstractDetailApi {
 }
 
 
-extension MovieShort: ApiItem {}
+extension MovieShort: IApiItem {}
 
-extension MovieFull: ApiDetailItem {
-    public var content: [String: String] {
-        return ["Title": title,
-                "Year": released.safeString,
-                "Actors": actors.safeString,
-                "Launguage": language.safeString,
-                "Description": plot.safeString
-        ]
-    }
-
+extension MovieFull: IDetailApiItem {
     public var id: String {
         return "\(hashValue)"
     }

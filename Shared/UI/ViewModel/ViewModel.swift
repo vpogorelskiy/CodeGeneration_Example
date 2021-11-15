@@ -2,7 +2,7 @@ import Foundation
 import DI
 import SearchUI
 
-class ViewModel<Api: AbstractApi>: IViewModel {
+class ViewModel<Api: IApi>: IViewModel {
     @Injected var api: Api!
     @Published var items: [IViewModelItem] = []
     @Published var isLoading = false
@@ -30,7 +30,7 @@ class ViewModel<Api: AbstractApi>: IViewModel {
         }
     }
 
-    func reduceItems(_ apiItems: [ApiItem]) -> [ViewModelItem] {
+    func reduceItems(_ apiItems: [IApiItem]) -> [ViewModelItem] {
         return []
     }
 
@@ -59,6 +59,6 @@ class ViewModel<Api: AbstractApi>: IViewModel {
 struct ViewModelItem: IViewModelItem {
     var id: String
     let title: String
-    let apiItem: ApiItem
+    let apiItem: IApiItem
 }
 

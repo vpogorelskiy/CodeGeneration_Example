@@ -2,7 +2,7 @@ import SearchUI
 import BooksApi
 
 class BooksViewModel: ViewModel<BooksAPI> {
-    override func reduceItems(_ apiItems: [ApiItem]) -> [ViewModelItem] {
+    override func reduceItems(_ apiItems: [IApiItem]) -> [ViewModelItem] {
         guard let bookItems = apiItems as? [BooksVolume] else {
             return []
         }
@@ -17,7 +17,7 @@ class BooksViewModel: ViewModel<BooksAPI> {
 }
 
 class BooksDetailViewModel: DetailViewModel<BooksAPI> {
-    override func reduceItem(_ detailApiItem: ApiDetailItem) -> [IDetailViewModelItem] {
+    override func reduceItem(_ detailApiItem: IDetailApiItem) -> [IDetailViewModelItem] {
         guard let item = detailApiItem as? VolumeInfo else {
             return []
         }
