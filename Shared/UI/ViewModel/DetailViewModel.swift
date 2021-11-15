@@ -1,14 +1,14 @@
 import Foundation
 import SearchUI
+import DI
 
 class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
     var content: [String: String] = [:]
     
-    private let api: Api
+    @Injected private var api: Api!
     private let item: ViewModelItem
     
-    public init(api: Api, item: ViewModelItem) {
-        self.api = api
+    public init(item: ViewModelItem) {
         self.item = item
     }
     

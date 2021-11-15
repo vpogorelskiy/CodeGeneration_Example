@@ -1,20 +1,46 @@
 
 import SwiftUI
 import CustomNavigation
+import Foundation
+import Combine
 
 struct ResultsView: View {
     var viewModel: IViewModel
+//    {
+//        didSet {
+//            viewModel.itemsPublisher
+//                .receive(on: RunLoop.main)
+//                .sink { items in
+//                    self.updateItems(items)
+//                }
+//                .store(in: &cancellables)
+//            viewModel.isLoadingPublisher
+//                .receive(on: RunLoop.main)
+//                .sink { isLoading in
+//                    self.isLoading = isLoading
+//                }
+//                .store(in: &cancellables)
+//        }
+//    }
+    
+    @State private var cancellables: Set<AnyCancellable> = []
+    @State private var items: [IViewModelItem] = []
+    @State private var isLoading: Bool = false
+    
+    public init(viewModel: IViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         List {
-            ForEach(viewModel.items, id: \.id) { item in
+            ForEach(items, id: \.id) { item in
                 ResultsRow(viewModel: viewModel,
                            item: item)
                     .onAppear {
                         viewModel.loadNextIfNeeded(for: item)
                     }
             }
-            if viewModel.isLoading {
+            if isLoading {
                 HStack {
                     Spacer()
                     ProgressView()
@@ -22,6 +48,12 @@ struct ResultsView: View {
                 }
             }
         }
+        .onReceive(viewModel.itemsPublisher) { items = $0 }
+        .onReceive(viewModel.isLoadingPublisher) { isLoading = $0 }
+    }
+    
+    mutating func updateItems(_ items: [IViewModelItem]) {
+        self.items = items
     }
 }
 
@@ -33,11 +65,17 @@ struct ResultsRow: View {
     var body: some View {
         
         CustomNavigation.Link (destination: {
-            DetailView(detailViewModel: viewModel.detailViewModel(for: item))
-                .customNavigationTitle(item.title)
-                .onAppear {
-                    
+            CustomNavigation.NavigationLazyView {
+                if let vm = viewModel.detailViewModel(for: item) {
+                    DetailView(detailViewModel: vm)
+                        .customNavigationTitle(item.title)
+                        .onAppear {
+                            vm.getDetails()
+                        }
+                } else {
+                    EmptyView()
                 }
+            }
         }, label: {
             Text(item.title)
                 .foregroundColor(.black)
