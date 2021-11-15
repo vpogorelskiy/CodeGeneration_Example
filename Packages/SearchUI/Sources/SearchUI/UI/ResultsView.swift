@@ -85,11 +85,11 @@ struct ResultsRow: View {
 
 struct DetailView: View {
     let detailViewModel: IDetailViewModel
+    @State var content: [String: String] = [:]
     
     var body: some View {
-        let dict = detailViewModel.content
-        let keys = dict.map{ $0.key }
-        let values = dict.map { $0.value }
+        let keys = content.map{ $0.key }
+        let values = content.map { $0.value }
         
         List {
             ForEach(keys.indices) {index in
@@ -99,5 +99,6 @@ struct DetailView: View {
                 }
             }
         }
+        .onReceive(detailViewModel.contentPublisher) { content = $0 }
     }
 }

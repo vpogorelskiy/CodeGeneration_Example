@@ -3,7 +3,8 @@ import SearchUI
 import DI
 
 class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
-    var content: [String: String] = [:]
+    @Published var content: [String: String] = [:]
+    var contentPublisher: Published<[String: String]>.Publisher { $content }
     
     @Injected private var api: Api!
     private let item: ViewModelItem
