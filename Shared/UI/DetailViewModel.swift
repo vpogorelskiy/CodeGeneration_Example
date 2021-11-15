@@ -1,7 +1,7 @@
 import Foundation
 import SearchUI
 
-class DetailViewModel<Api: AbstractApi>: IDetailViewModel {
+class DetailViewModel<Api: AbstractDetailApi>: IDetailViewModel {
     var content: [String: String] = [:]
     
     private let api: Api

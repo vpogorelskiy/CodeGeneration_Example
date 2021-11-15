@@ -1,10 +1,11 @@
-
 import Foundation
 
-public @propertyWrapper struct Injected<Value> {
+@propertyWrapper public struct Injected<Value> {
     private var storedValue: Value!
     
-    var wrappedValue: Value! {
+    public init() {}
+    
+    public var wrappedValue: Value! {
         mutating set {
             storedValue = newValue
         }
@@ -17,7 +18,7 @@ public @propertyWrapper struct Injected<Value> {
         }
     }
     
-    var projectedValue: Injected<Value> {
+    public var projectedValue: Injected<Value> {
         get { self }
         mutating set { self = newValue }
     }

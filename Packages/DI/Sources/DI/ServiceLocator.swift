@@ -1,6 +1,6 @@
 import Foundation
 
-public class ServiceLocator {
+open class ServiceLocator {
     static var sharedInstance = ServiceLocator()
     
     private var storedReferences: [String: Any] = .init()
