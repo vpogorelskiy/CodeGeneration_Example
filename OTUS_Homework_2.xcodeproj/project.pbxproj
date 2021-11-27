@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0C16DC2752AF7E009EB51C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0C16DB2752AF7E009EB51C /* Realm */; };
+		2B0C16DE2752AF7E009EB51C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0C16DD2752AF7E009EB51C /* RealmSwift */; };
 		2B1107B22725A79C005E44A5 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B12725A79C005E44A5 /* BooksApi */; };
 		2B1107B42725A79F005E44A5 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B32725A79F005E44A5 /* MoviesApi */; };
 		2B1107B82725A7A7005E44A5 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B72725A7A7005E44A5 /* BooksApi */; };
@@ -71,10 +73,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0C16DE2752AF7E009EB51C /* RealmSwift in Frameworks */,
 				2B1107BF2725A922005E44A5 /* SearchUI in Frameworks */,
 				2B1107B42725A79F005E44A5 /* MoviesApi in Frameworks */,
 				2B1107B22725A79C005E44A5 /* BooksApi in Frameworks */,
 				D6D95EB72729380E00588723 /* DI in Frameworks */,
+				2B0C16DC2752AF7E009EB51C /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +233,8 @@
 				2B1107B32725A79F005E44A5 /* MoviesApi */,
 				2B1107BE2725A922005E44A5 /* SearchUI */,
 				D6D95EB62729380E00588723 /* DI */,
+				2B0C16DB2752AF7E009EB51C /* Realm */,
+				2B0C16DD2752AF7E009EB51C /* RealmSwift */,
 			);
 			productName = "OTUS_Homework_2 (iOS)";
 			productReference = 2B8337DD26F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -283,6 +289,9 @@
 				Base,
 			);
 			mainGroup = 2B8337D026F8388E00CBF76F;
+			packageReferences = (
+				2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = 2B8337DE26F8389000CBF76F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -588,7 +597,28 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		2B0C16DB2752AF7E009EB51C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		2B0C16DD2752AF7E009EB51C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
 		2B1107B12725A79C005E44A5 /* BooksApi */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BooksApi;
