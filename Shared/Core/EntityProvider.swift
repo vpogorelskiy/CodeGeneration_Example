@@ -13,14 +13,21 @@ class EntityProvider {
     private var hasNext = true
     
     func getBooks(forQuery query: String, completion: @escaping ([Book])-> Void) {
+        lastQuery = query
         let cached = getCachedBooks(forQuery: query)
         if !cached.isEmpty {
+            lastBatchIndex = cached.count / batchSize
             completion(cached)
             return
         }
         
-        loadBooks(forQuery: query, completion: completion)
+        loadBooks(forQuery: query, completion: { [weak self] books in
+            self?.storeBooks(books)
+            completion(books)
+        })
     }
+    
+    
     
     func getCachedBooks(forQuery query: String) -> [Book] {
         return Array(realm.objects(Book.self).filter("title CONTAINS \(query)"))
@@ -30,10 +37,14 @@ class EntityProvider {
         realm.add(books)
     }
     
+    func getNextIfNeeded(completion: @escaping ([Book]) -> Void) {
+        loadBooks(forQuery: lastQuery, completion: completion)
+    }
+    
     private func loadBooks(forQuery query: String, completion: @escaping ([Book]) -> Void) {
-        lastBatchIndex += 1
-        api.perform(query: query, batchSize: batchSize, startIndex: 0) { volumes, error in
-            
+        api.perform(query: query, batchSize: batchSize, startIndex: lastBatchIndex) { volumes, error in
+            completion(volumes.map{ Book(withVolume: $0) })
+            lastBatchIndex += 1
         }
     }
 }
