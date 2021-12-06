@@ -9,10 +9,10 @@ struct ContentView: View {
                     Image(systemName: "books.vertical")
                     Text("Books")
                 }
-            ViewBuilder.moviesView()
+            ViewBuilder.booksOfflineView()
                 .tabItem {
-                    Image(systemName: "play.rectangle")
-                    Text("Movies")
+                    Image(systemName: "bookmark.fill")
+                    Text("Books offline")
                 }
         }
     }

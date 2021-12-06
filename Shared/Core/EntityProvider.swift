@@ -2,17 +2,26 @@ import Foundation
 import DI
 import RealmSwift
 import BooksApi
+import SearchUI
 
 class EntityProvider {
+    private(set) var lastQuery = "" {
+        didSet {
+            if lastQuery != oldValue {
+                lastBatchIndex = 0
+                hasNext = true
+            }
+        }
+    }
+    
     @Injected private var api: BooksAPI!
     private let realm = try! Realm()
-    
     private let batchSize = 20
-    private var lastQuery = ""
     private var lastBatchIndex = 0
     private var hasNext = true
     
     func getBooks(forQuery query: String, completion: @escaping ([Book])-> Void) {
+        guard query != lastQuery else { return }
         lastQuery = query
         let cached = getCachedBooks(forQuery: query)
         if !cached.isEmpty {
@@ -27,14 +36,16 @@ class EntityProvider {
         })
     }
     
-    
-    
     func getCachedBooks(forQuery query: String) -> [Book] {
-        return Array(realm.objects(Book.self).filter("title CONTAINS \(query)"))
+        return Array(realm.objects(Book.self).filter{ $0.title.contains(query) })
     }
     
     private func storeBooks(_ books: [Book]) {
+        print("\(Self.self).\(#function) ADDING: \(books.map{ $0.title })")
+        realm.beginWrite()
         realm.add(books)
+        try? realm.commitWrite()
+        print("\(Self.self).\(#function) STORED: \(realm.objects(Book.self).map{ $0.title }))")
     }
     
     func getNextIfNeeded(completion: @escaping ([Book]) -> Void) {
@@ -42,9 +53,14 @@ class EntityProvider {
     }
     
     private func loadBooks(forQuery query: String, completion: @escaping ([Book]) -> Void) {
-        api.perform(query: query, batchSize: batchSize, startIndex: lastBatchIndex) { volumes, error in
-            completion(volumes.map{ Book(withVolume: $0) })
-            lastBatchIndex += 1
+        guard hasNext == true else { return }
+        api.perform(query: query, batchSize: batchSize, startIndex: lastBatchIndex) { [weak self] volumes, error in
+            let books = volumes.map{ Book(withVolume: $0) }
+            if books.isEmpty {
+                self?.hasNext = false
+            }
+            completion(books)
+            self?.lastBatchIndex += 1
         }
     }
 }
@@ -52,7 +68,7 @@ class EntityProvider {
 class Book: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var id: String = ""
-    @objc dynamic var authors: [String] = []
+    var authors: List<String> = List()
     @objc dynamic var language: String?
     @objc dynamic var bookDescription: String?
     @objc dynamic var publishedDate: String?
@@ -63,11 +79,11 @@ extension Book {
         self.init()
         self.id = volume.id
         self.title = volume.volumeInfo.title
-        self.authors = volume.volumeInfo.authors ?? []
+        self.authors.append(objectsIn: volume.volumeInfo.authors ?? [])
         self.language = volume.volumeInfo.language
         self.bookDescription = volume.volumeInfo.description
         self.publishedDate = volume.volumeInfo.publishedDate
     }
-    
-    
 }
+
+extension Book: IViewModelItem {}

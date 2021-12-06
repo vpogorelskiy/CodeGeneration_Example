@@ -13,11 +13,21 @@ enum ViewBuilder {
         Resolver.sharedInstance.register(MoviesAPI.self) { r in
             MoviesAPI()
         }
+        
+        Resolver.sharedInstance.register(EntityProvider.self) { r in
+            EntityProvider()
+        }
     }
     
     
     static func booksView() -> some View {
         SearchUIView(viewModel: BooksViewModel())
+    }
+    
+    static func booksOfflineView() -> some View {
+        let vm = BooksViewModel()
+        vm.isOffline = true
+        return SearchUIView(viewModel: vm)
     }
         
     static func moviesView() -> some View {

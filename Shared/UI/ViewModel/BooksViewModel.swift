@@ -1,35 +1,46 @@
+import Foundation
+import DI
 import SearchUI
-import BooksApi
 
-class BooksViewModel: ViewModel<BooksAPI> {
-    override func reduceItems(_ apiItems: [IApiItem]) -> [ViewModelItem] {
-        guard let bookItems = apiItems as? [BooksVolume] else {
-            return []
-        }
-        return bookItems.map{ ViewModelItem(id: $0.id,
-                                            title: $0.title.safeString,
-                                            apiItem: $0) }
-    }
+class BooksViewModel: IViewModel {
+    var isOffline = false
     
-    override func detailViewModel(for item: IViewModelItem) -> IDetailViewModel {
-        return BooksDetailViewModel(item: item as! ViewModelItem)
-    }
-}
+    @Published var items: [IViewModelItem] = []
+    var itemsPublisher: Published<[IViewModelItem]>.Publisher { $items }
+    
+    @Published var isLoading = false
+    var isLoadingPublisher: Published<Bool>.Publisher { $isLoading }
+    
+    @Injected private var entityProvider: EntityProvider!
 
-class BooksDetailViewModel: DetailViewModel<BooksAPI> {
-    override func reduceItem(_ detailApiItem: IDetailApiItem) -> [IDetailViewModelItem] {
-        guard let item = detailApiItem as? VolumeInfo else {
-            return []
+    public init() {}
+
+    func makeSearch(query: String) {
+        if isOffline {
+            self.items = entityProvider.getCachedBooks(forQuery: query)
         }
         
-        let content: [DetailViewModelItem] = [.init(title: "Title", value: item.title),
-                                              .init(title: "Authors", value: (item.authors ?? []).joined(separator: ", ")),
-                                              .init(title: "Published on", value: item.publishedDate ?? ""),
-                                              .init(title: "Launguage", value: item.language ?? ""),
-                                              .init(title: "Description", value: item.description ?? "")
-        ]
-        
-        return content
+        entityProvider.getBooks(forQuery: query) { [weak self] books in
+            self?.items = books
+        }
+    }
+
+    func reduceItems(_ apiItems: [IApiItem]) -> [ViewModelItem] {
+        return []
+    }
+
+    func loadNextIfNeeded(for item: IViewModelItem) {
+        guard isLoading == false,
+                items.last?.id == item.id else { return }
+
+        isLoading = true
+        entityProvider.getNextIfNeeded { [weak self] books in
+            self?.items.append(contentsOf: books)
+            self?.isLoading = false
+        }
     }
     
+    func detailViewModel(for item: IViewModelItem) -> IDetailViewModel? {
+        return nil
+    }
 }
