@@ -41,6 +41,26 @@ class BooksViewModel: IViewModel {
     }
     
     func detailViewModel(for item: IViewModelItem) -> IDetailViewModel? {
-        return nil
+        guard let book = item as? Book else { return nil }
+        return BooksDetailViewModel(book: book)
     }
+}
+
+class BooksDetailViewModel: IDetailViewModel {
+    @Published var content: [IDetailViewModelItem] = []
+    var contentPublisher: Published<[IDetailViewModelItem]>.Publisher { $content }
+    
+    private let book: Book
+    
+    public init(book: Book) {
+        self.book = book
+        self.content = [DetailViewModelItem(title: "Title", value: book.title),
+                        DetailViewModelItem(title: "Authors", value: (Array(book.authors)).joined(separator: ", ")),
+                        DetailViewModelItem(title: "Published on", value: book.publishedDate ?? ""),
+                        DetailViewModelItem(title: "Launguage", value: book.language ?? ""),
+                        DetailViewModelItem(title: "Description", value: book.bookDescription ?? ""),
+        ]
+    }
+    
+    func getDetails() {}
 }
