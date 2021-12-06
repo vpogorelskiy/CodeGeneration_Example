@@ -11,10 +11,8 @@ class BooksViewModel: IViewModel {
     @Published var isLoading = false
     var isLoadingPublisher: Published<Bool>.Publisher { $isLoading }
     
-    @Injected private var entityProvider: EntityProvider!
-
-    public init() {}
-
+    private var entityProvider = EntityProvider()
+    
     func makeSearch(query: String) {
         if isOffline {
             self.items = entityProvider.getCachedBooks(forQuery: query)
@@ -24,15 +22,12 @@ class BooksViewModel: IViewModel {
             self?.items = books
         }
     }
-
-    func reduceItems(_ apiItems: [IApiItem]) -> [ViewModelItem] {
-        return []
-    }
-
+    
     func loadNextIfNeeded(for item: IViewModelItem) {
         guard isLoading == false,
-                items.last?.id == item.id else { return }
-
+              isOffline == false,
+              items.last?.id == item.id else { return }
+        
         isLoading = true
         entityProvider.getNextIfNeeded { [weak self] books in
             self?.items.append(contentsOf: books)
