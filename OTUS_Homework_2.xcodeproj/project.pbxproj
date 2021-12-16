@@ -7,13 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B0C16DC2752AF7E009EB51C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0C16DB2752AF7E009EB51C /* Realm */; };
-		2B0C16DE2752AF7E009EB51C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0C16DD2752AF7E009EB51C /* RealmSwift */; };
-		2B1107B22725A79C005E44A5 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B12725A79C005E44A5 /* BooksApi */; };
-		2B1107B42725A79F005E44A5 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B32725A79F005E44A5 /* MoviesApi */; };
 		2B1107B82725A7A7005E44A5 /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B72725A7A7005E44A5 /* BooksApi */; };
 		2B1107BA2725A7A9005E44A5 /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107B92725A7A9005E44A5 /* MoviesApi */; };
-		2B1107BF2725A922005E44A5 /* SearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107BE2725A922005E44A5 /* SearchUI */; };
 		2B1107C12725A9BA005E44A5 /* SearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2B1107C02725A9BA005E44A5 /* SearchUI */; };
 		2B41AF662742582E00490A02 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41AF652742582E00490A02 /* BooksViewModel.swift */; };
 		2B41AF672742582E00490A02 /* BooksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41AF652742582E00490A02 /* BooksViewModel.swift */; };
@@ -21,6 +16,13 @@
 		2B41AF6E274290BC00490A02 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41AF6C274290BC00490A02 /* MoviesViewModel.swift */; };
 		2B41AF7127429B3A00490A02 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41AF7027429B3A00490A02 /* ViewBuilder.swift */; };
 		2B41AF7227429B3A00490A02 /* ViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B41AF7027429B3A00490A02 /* ViewBuilder.swift */; };
+		2B66AB66276B1DA0005A06CB /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB65276B1DA0005A06CB /* BooksApi */; };
+		2B66AB68276B1DA3005A06CB /* CustomNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB67276B1DA3005A06CB /* CustomNavigation */; };
+		2B66AB6A276B1DA6005A06CB /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB69276B1DA6005A06CB /* DI */; };
+		2B66AB6C276B1DA8005A06CB /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB6B276B1DA8005A06CB /* MoviesApi */; };
+		2B66AB6E276B1DAC005A06CB /* SearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB6D276B1DAC005A06CB /* SearchUI */; };
+		2B66AB70276B1DB0005A06CB /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB6F276B1DB0005A06CB /* Realm */; };
+		2B66AB72276B1DB3005A06CB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B66AB71276B1DB3005A06CB /* RealmSwift */; };
 		2B8337E926F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */; };
 		2B8337EA26F8389000CBF76F /* OTUS_Homework_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */; };
 		2B8337EB26F8389000CBF76F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8337D726F8388E00CBF76F /* ContentView.swift */; };
@@ -37,7 +39,6 @@
 		D6D95EB0272870EA00588723 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D95EAE272870EA00588723 /* DetailViewModel.swift */; };
 		D6D95EB327287B4600588723 /* IApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D95EB227287B4600588723 /* IApi.swift */; };
 		D6D95EB427287B4600588723 /* IApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D95EB227287B4600588723 /* IApi.swift */; };
-		D6D95EB72729380E00588723 /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = D6D95EB62729380E00588723 /* DI */; };
 		D6D95EB92729381300588723 /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = D6D95EB82729381300588723 /* DI */; };
 		D6F4D5942704DECE0035D173 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4D5932704DECE0035D173 /* BooksApi.swift */; };
 		D6F4D5952704DECE0035D173 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4D5932704DECE0035D173 /* BooksApi.swift */; };
@@ -49,11 +50,11 @@
 		2B41AF652742582E00490A02 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		2B41AF6C274290BC00490A02 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		2B41AF7027429B3A00490A02 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
-		2B823E30276B1AF100CAEF5E /* BooksApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BooksApi; path = Packages/BooksApi; sourceTree = "<group>"; };
-		2B823E32276B1B1200CAEF5E /* CustomNavigation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CustomNavigation; path = Packages/CustomNavigation; sourceTree = "<group>"; };
-		2B823E33276B1B1C00CAEF5E /* DI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DI; path = Packages/DI; sourceTree = "<group>"; };
-		2B823E34276B1B2400CAEF5E /* MoviesApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MoviesApi; path = Packages/MoviesApi; sourceTree = "<group>"; };
-		2B823E35276B1B3100CAEF5E /* SearchUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SearchUI; path = Packages/SearchUI; sourceTree = "<group>"; };
+		2B66AB60276B1D58005A06CB /* BooksApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BooksApi; path = Packages/BooksApi; sourceTree = "<group>"; };
+		2B66AB61276B1D62005A06CB /* CustomNavigation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CustomNavigation; path = Packages/CustomNavigation; sourceTree = "<group>"; };
+		2B66AB62276B1D6C005A06CB /* DI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DI; path = Packages/DI; sourceTree = "<group>"; };
+		2B66AB63276B1D79005A06CB /* MoviesApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MoviesApi; path = Packages/MoviesApi; sourceTree = "<group>"; };
+		2B66AB64276B1D84005A06CB /* SearchUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SearchUI; path = Packages/SearchUI; sourceTree = "<group>"; };
 		2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTUS_Homework_2App.swift; sourceTree = "<group>"; };
 		2B8337D726F8388E00CBF76F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2B8337D826F8389000CBF76F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,12 +77,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2B0C16DE2752AF7E009EB51C /* RealmSwift in Frameworks */,
-				2B1107BF2725A922005E44A5 /* SearchUI in Frameworks */,
-				2B1107B42725A79F005E44A5 /* MoviesApi in Frameworks */,
-				2B1107B22725A79C005E44A5 /* BooksApi in Frameworks */,
-				D6D95EB72729380E00588723 /* DI in Frameworks */,
-				2B0C16DC2752AF7E009EB51C /* Realm in Frameworks */,
+				2B66AB70276B1DB0005A06CB /* Realm in Frameworks */,
+				2B66AB66276B1DA0005A06CB /* BooksApi in Frameworks */,
+				2B66AB72276B1DB3005A06CB /* RealmSwift in Frameworks */,
+				2B66AB6E276B1DAC005A06CB /* SearchUI in Frameworks */,
+				2B66AB68276B1DA3005A06CB /* CustomNavigation in Frameworks */,
+				2B66AB6C276B1DA8005A06CB /* MoviesApi in Frameworks */,
+				2B66AB6A276B1DA6005A06CB /* DI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,18 +101,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2B1107AD2725A770005E44A5 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				2B823E30276B1AF100CAEF5E /* BooksApi */,
-				2B823E32276B1B1200CAEF5E /* CustomNavigation */,
-				2B823E33276B1B1C00CAEF5E /* DI */,
-				2B823E34276B1B2400CAEF5E /* MoviesApi */,
-				2B823E35276B1B3100CAEF5E /* SearchUI */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		2B41AF68274259F300490A02 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,10 +120,22 @@
 			path = ViewBuilder;
 			sourceTree = "<group>";
 		};
+		2B66AB5F276B1D58005A06CB /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				2B66AB60276B1D58005A06CB /* BooksApi */,
+				2B66AB61276B1D62005A06CB /* CustomNavigation */,
+				2B66AB62276B1D6C005A06CB /* DI */,
+				2B66AB63276B1D79005A06CB /* MoviesApi */,
+				2B66AB64276B1D84005A06CB /* SearchUI */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 		2B8337D026F8388E00CBF76F = {
 			isa = PBXGroup;
 			children = (
-				2B1107AD2725A770005E44A5 /* Packages */,
+				2B66AB5F276B1D58005A06CB /* Packages */,
 				2B8337D526F8388E00CBF76F /* Shared */,
 				2B8337DF26F8389000CBF76F /* iOS */,
 				2B8337E626F8389000CBF76F /* macOS */,
@@ -233,12 +235,13 @@
 			);
 			name = "OTUS_Homework_2 (iOS)";
 			packageProductDependencies = (
-				2B1107B12725A79C005E44A5 /* BooksApi */,
-				2B1107B32725A79F005E44A5 /* MoviesApi */,
-				2B1107BE2725A922005E44A5 /* SearchUI */,
-				D6D95EB62729380E00588723 /* DI */,
-				2B0C16DB2752AF7E009EB51C /* Realm */,
-				2B0C16DD2752AF7E009EB51C /* RealmSwift */,
+				2B66AB65276B1DA0005A06CB /* BooksApi */,
+				2B66AB67276B1DA3005A06CB /* CustomNavigation */,
+				2B66AB69276B1DA6005A06CB /* DI */,
+				2B66AB6B276B1DA8005A06CB /* MoviesApi */,
+				2B66AB6D276B1DAC005A06CB /* SearchUI */,
+				2B66AB6F276B1DB0005A06CB /* Realm */,
+				2B66AB71276B1DB3005A06CB /* RealmSwift */,
 			);
 			productName = "OTUS_Homework_2 (iOS)";
 			productReference = 2B8337DD26F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -617,24 +620,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2B0C16DB2752AF7E009EB51C /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		2B0C16DD2752AF7E009EB51C /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-		2B1107B12725A79C005E44A5 /* BooksApi */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BooksApi;
-		};
-		2B1107B32725A79F005E44A5 /* MoviesApi */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MoviesApi;
-		};
 		2B1107B72725A7A7005E44A5 /* BooksApi */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BooksApi;
@@ -643,17 +628,39 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = MoviesApi;
 		};
-		2B1107BE2725A922005E44A5 /* SearchUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SearchUI;
-		};
 		2B1107C02725A9BA005E44A5 /* SearchUI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SearchUI;
 		};
-		D6D95EB62729380E00588723 /* DI */ = {
+		2B66AB65276B1DA0005A06CB /* BooksApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BooksApi;
+		};
+		2B66AB67276B1DA3005A06CB /* CustomNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CustomNavigation;
+		};
+		2B66AB69276B1DA6005A06CB /* DI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DI;
+		};
+		2B66AB6B276B1DA8005A06CB /* MoviesApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesApi;
+		};
+		2B66AB6D276B1DAC005A06CB /* SearchUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SearchUI;
+		};
+		2B66AB6F276B1DB0005A06CB /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		2B66AB71276B1DB3005A06CB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
 		};
 		D6D95EB82729381300588723 /* DI */ = {
 			isa = XCSwiftPackageProductDependency;
