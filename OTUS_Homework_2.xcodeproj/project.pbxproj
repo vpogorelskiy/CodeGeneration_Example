@@ -40,6 +40,11 @@
 		D6D95EB327287B4600588723 /* IApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D95EB227287B4600588723 /* IApi.swift */; };
 		D6D95EB427287B4600588723 /* IApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6D95EB227287B4600588723 /* IApi.swift */; };
 		D6D95EB92729381300588723 /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = D6D95EB82729381300588723 /* DI */; };
+		D6EB2A9C2770E9A500FDBF9E /* BooksApi in Frameworks */ = {isa = PBXBuildFile; productRef = D6EB2A9B2770E9A500FDBF9E /* BooksApi */; };
+		D6EB2A9E2770E9A500FDBF9E /* CustomNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = D6EB2A9D2770E9A500FDBF9E /* CustomNavigation */; };
+		D6EB2AA02770E9A500FDBF9E /* DI in Frameworks */ = {isa = PBXBuildFile; productRef = D6EB2A9F2770E9A500FDBF9E /* DI */; };
+		D6EB2AA22770E9A500FDBF9E /* MoviesApi in Frameworks */ = {isa = PBXBuildFile; productRef = D6EB2AA12770E9A500FDBF9E /* MoviesApi */; };
+		D6EB2AA42770E9A500FDBF9E /* SearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = D6EB2AA32770E9A500FDBF9E /* SearchUI */; };
 		D6F4D5942704DECE0035D173 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4D5932704DECE0035D173 /* BooksApi.swift */; };
 		D6F4D5952704DECE0035D173 /* BooksApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4D5932704DECE0035D173 /* BooksApi.swift */; };
 		D6F4D5972704DF0B0035D173 /* MoviesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6F4D5962704DEEC0035D173 /* MoviesApi.swift */; };
@@ -50,11 +55,6 @@
 		2B41AF652742582E00490A02 /* BooksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewModel.swift; sourceTree = "<group>"; };
 		2B41AF6C274290BC00490A02 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 		2B41AF7027429B3A00490A02 /* ViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewBuilder.swift; sourceTree = "<group>"; };
-		2B66AB60276B1D58005A06CB /* BooksApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BooksApi; path = Packages/BooksApi; sourceTree = "<group>"; };
-		2B66AB61276B1D62005A06CB /* CustomNavigation */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CustomNavigation; path = Packages/CustomNavigation; sourceTree = "<group>"; };
-		2B66AB62276B1D6C005A06CB /* DI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = DI; path = Packages/DI; sourceTree = "<group>"; };
-		2B66AB63276B1D79005A06CB /* MoviesApi */ = {isa = PBXFileReference; lastKnownFileType = folder; name = MoviesApi; path = Packages/MoviesApi; sourceTree = "<group>"; };
-		2B66AB64276B1D84005A06CB /* SearchUI */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SearchUI; path = Packages/SearchUI; sourceTree = "<group>"; };
 		2B8337D626F8388E00CBF76F /* OTUS_Homework_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTUS_Homework_2App.swift; sourceTree = "<group>"; };
 		2B8337D726F8388E00CBF76F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2B8337D826F8389000CBF76F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,11 +77,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6EB2AA42770E9A500FDBF9E /* SearchUI in Frameworks */,
+				D6EB2A9C2770E9A500FDBF9E /* BooksApi in Frameworks */,
 				2B66AB70276B1DB0005A06CB /* Realm in Frameworks */,
 				2B66AB66276B1DA0005A06CB /* BooksApi in Frameworks */,
+				D6EB2AA22770E9A500FDBF9E /* MoviesApi in Frameworks */,
 				2B66AB72276B1DB3005A06CB /* RealmSwift in Frameworks */,
 				2B66AB6E276B1DAC005A06CB /* SearchUI in Frameworks */,
+				D6EB2AA02770E9A500FDBF9E /* DI in Frameworks */,
 				2B66AB68276B1DA3005A06CB /* CustomNavigation in Frameworks */,
+				D6EB2A9E2770E9A500FDBF9E /* CustomNavigation in Frameworks */,
 				2B66AB6C276B1DA8005A06CB /* MoviesApi in Frameworks */,
 				2B66AB6A276B1DA6005A06CB /* DI in Frameworks */,
 			);
@@ -120,22 +125,9 @@
 			path = ViewBuilder;
 			sourceTree = "<group>";
 		};
-		2B66AB5F276B1D58005A06CB /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				2B66AB60276B1D58005A06CB /* BooksApi */,
-				2B66AB61276B1D62005A06CB /* CustomNavigation */,
-				2B66AB62276B1D6C005A06CB /* DI */,
-				2B66AB63276B1D79005A06CB /* MoviesApi */,
-				2B66AB64276B1D84005A06CB /* SearchUI */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		2B8337D026F8388E00CBF76F = {
 			isa = PBXGroup;
 			children = (
-				2B66AB5F276B1D58005A06CB /* Packages */,
 				2B8337D526F8388E00CBF76F /* Shared */,
 				2B8337DF26F8389000CBF76F /* iOS */,
 				2B8337E626F8389000CBF76F /* macOS */,
@@ -242,6 +234,11 @@
 				2B66AB6D276B1DAC005A06CB /* SearchUI */,
 				2B66AB6F276B1DB0005A06CB /* Realm */,
 				2B66AB71276B1DB3005A06CB /* RealmSwift */,
+				D6EB2A9B2770E9A500FDBF9E /* BooksApi */,
+				D6EB2A9D2770E9A500FDBF9E /* CustomNavigation */,
+				D6EB2A9F2770E9A500FDBF9E /* DI */,
+				D6EB2AA12770E9A500FDBF9E /* MoviesApi */,
+				D6EB2AA32770E9A500FDBF9E /* SearchUI */,
 			);
 			productName = "OTUS_Homework_2 (iOS)";
 			productReference = 2B8337DD26F8389000CBF76F /* OTUS_Homework_2.app */;
@@ -298,6 +295,7 @@
 			mainGroup = 2B8337D026F8388E00CBF76F;
 			packageReferences = (
 				2B0C16DA2752AF7D009EB51C /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */,
 			);
 			productRefGroup = 2B8337DE26F8389000CBF76F /* Products */;
 			projectDirPath = "";
@@ -617,6 +615,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vpogorelskiy/OTUS_Packages.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -665,6 +671,31 @@
 		D6D95EB82729381300588723 /* DI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DI;
+		};
+		D6EB2A9B2770E9A500FDBF9E /* BooksApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */;
+			productName = BooksApi;
+		};
+		D6EB2A9D2770E9A500FDBF9E /* CustomNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */;
+			productName = CustomNavigation;
+		};
+		D6EB2A9F2770E9A500FDBF9E /* DI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */;
+			productName = DI;
+		};
+		D6EB2AA12770E9A500FDBF9E /* MoviesApi */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */;
+			productName = MoviesApi;
+		};
+		D6EB2AA32770E9A500FDBF9E /* SearchUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D6EB2A9A2770E9A500FDBF9E /* XCRemoteSwiftPackageReference "OTUS_Packages" */;
+			productName = SearchUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
